@@ -8,28 +8,19 @@
 import SwiftUI
 
 struct CongratsView: View {
+    @State var isTapped = false
     var body: some View {
-        ZStack{
-            Image("Congrats")
-                .resizable()
-                .scaledToFill()
-
-            NavigationLink{
-                LastView()
-            }label:{
-                Group{
-                    HStack{
-                        Text("Ok")
-                            .scaledFont(name: "Montserrat-SemiBold", size: 24)
-                        Text("＞")
-                            .scaledFont(name: "Montserrat-SemiBold", size: 24)
+            ZStack{
+                Image("PreviewExercise2")
+                    .resizable()
+                    .scaledToFit()
+                    .onTapGesture {
+                        isTapped.toggle()
                     }
-                }
-                .padding(.top, 700)
-                .foregroundColor(Color("Marinho"))
+                NavigationLink("", destination: LastView(), isActive: $isTapped)
             }
-        }
-        .ignoresSafeArea()
+
+//        .ignoresSafeArea()
         .onAppear {
             UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation") // Forcing the rotation to portrait
             AppDelegate.orientationLock = .portrait // And making sure it stays that way

@@ -39,11 +39,11 @@ struct Onboarding: View {
                         .overlay {
                             Image(info.imageName)
                                 .resizable()
-                                .frame(width: geometry.size.width)
+                                .frame(width: 357, height: 366.27)
                                 .aspectRatio(1, contentMode: .fit)
-                            // .scaledToFit()
+                                .scaledToFit()
                                 .ignoresSafeArea()
-                                .padding(16)
+                                .padding()
                             //                                .shadow(color: Color(hex: 0xD9D9D9), radius: 4, x: 0, y: 8)
                         }
 
@@ -68,8 +68,10 @@ struct Onboarding: View {
                     HStack {
                         Image(info.progressImage)
                             .resizable()
-                            .aspectRatio(10, contentMode: .fit)
+                            .aspectRatio(5, contentMode: .fit)
+//                            .frame(width: 92,height:94)
                             .padding(.top, 20)
+                            .padding(.horizontal, 50)
                             .clipped()
                             .scaledToFit()
 
@@ -144,5 +146,13 @@ struct Onboarding: View {
 
         }
 
+    }
+}
+
+
+
+struct Onboarding_Previews: PreviewProvider {
+    static var previews: some View {
+        Onboarding()
     }
 }

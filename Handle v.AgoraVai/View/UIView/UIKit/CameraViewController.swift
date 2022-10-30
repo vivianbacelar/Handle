@@ -31,6 +31,36 @@ class CameraViewController: UIViewController {
     private let shape = CAShapeLayer() // timer circle
     lazy var startNumber = 4 // inicio timer
 
+    fileprivate let congratsView = UIHostingController(rootView: CongratsView())
+
+
+
+    fileprivate func setupCongratsHC() {
+        addChild(congratsView)
+        view.addSubview(congratsView.view)
+        congratsView.didMove(toParent: self)
+    }
+
+    fileprivate func setupCongratsConstraints(){
+
+        if #available(iOS 16.0, *) {
+
+            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+
+            windowScene?.requestGeometryUpdate(.iOS(interfaceOrientations: .portrait))
+
+        }
+
+        congratsView.view.frame = view.layer.bounds
+//        congratsView.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+//        congratsView.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+//        congratsView.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+//        congratsView.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+//        congratsView.view.centerXAnchor.constraint(equalTo: initialView.centerXAnchor).isActive = true
+//        congratsView.view.centerYAnchor.constraint(equalTo: initialView.centerYAnchor).isActive = true
+
+
+    }
 
     private var textView: UITextView = {
         var textView = UITextView(frame: CGRect(x: 20.0, y: 90.0, width: 694, height: 131))
@@ -127,13 +157,18 @@ class CameraViewController: UIViewController {
     var index = 0
     func timerEnded(){
         index += 1
-        guard index < terapies.count else {
-//            print("cabô os timer tudo")
+        guard index < terapies.count-50 else {
+            drawOverlay.removeFromSuperview()
+            initialView.removeFromSuperview()
+//            cameraView.removeFromSuperview()
+            setupCongratsHC()
+            setupCongratsConstraints()
+            
+//            cameraView.removeFromSuperview()
             return
         }
         DispatchQueue.main.async {
             self.textView.text = terapies[self.index].text
-
 
         }
 //        print(terapies[self.index].text)
@@ -154,6 +189,8 @@ class CameraViewController: UIViewController {
         textViewThree.heightAnchor.constraint(equalToConstant: 50).isActive = true
         textViewThree.centerXAnchor.constraint(equalTo: initialView.centerXAnchor).isActive = true
         textViewThree.centerYAnchor.constraint(equalTo: initialView.lastBaselineAnchor, constant: -40).isActive = true
+//        initialView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+
     }
 
 
@@ -212,7 +249,6 @@ class CameraViewController: UIViewController {
 
     }
 
-
     @objc func animationClock() {
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.toValue = 1
@@ -258,12 +294,6 @@ class CameraViewController: UIViewController {
 
     }
 
-    //    override func viewDidLayoutSubviews() {
-    //        cameraView.previewLayer.connection?.videoOrientation = .landscapeLeft
-    //
-    //    }
-
-
     override func viewWillAppear(_ animated: Bool) {
         initialView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(initialView)
@@ -277,6 +307,8 @@ class CameraViewController: UIViewController {
         drawOverlay.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         drawOverlay.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         drawOverlay.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+
+
 
 
         if #available(iOS 16.0, *) {
@@ -298,6 +330,7 @@ class CameraViewController: UIViewController {
 
         }
     }
+
     override func viewDidAppear(_ animated: Bool){
 
         super.viewDidAppear(animated)
@@ -320,6 +353,7 @@ class CameraViewController: UIViewController {
         cameraFeedSession?.stopRunning()
         super.viewWillDisappear(animated)
     }
+
     func setupAVSession() throws {
         // Select a front facing camera, make an input.
         guard let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else {
@@ -399,6 +433,7 @@ class CameraViewController: UIViewController {
         }
         cameraView.showPoints([[pointsPair.thumbTip, pointsPair.indexTip]], color: tipsColor)
     }
+
     private func updatePath(with points: HandGestureProcessor.PointsPair, isLastPointsPair: Bool) {
         // Get the mid point between the tips.
         let (thumbTip, indexTip) = points
@@ -477,16 +512,9 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 //        print(nodes)
         return nodes.normalize().sumAll()
     }
-
-
-
-
     public func captureOutput(_ output: AVCaptureOutput,
                               didOutput sampleBuffer: CMSampleBuffer,
                               from connection: AVCaptureConnection) {
-
-
-
         let handler = VNImageRequestHandler(cmSampleBuffer: sampleBuffer, orientation: .up, options: [:])
         do {
             // Perform VNDetectHumanHandPoseRequest
@@ -505,46 +533,28 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                         self.drawOverlay.superview?.bringSubviewToFront(self.drawOverlay)
                     }
                 })
-                if HGR.handOpenCount > 100 {
+                if HGR.handOpenCount > 100 {   // comeca a atividade apos chegar a 100
                     DispatchQueue.main.async{
-
-
                         _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (time) in
-
-
                             self.startNumber -= 1
-
                             self.numberLabel.alpha = 1
                             if self.startNumber ==  0{
                                 self.numberLabel.isHidden = true
                                 TimerMachine.instance.start()
                                 self.textView.isHidden = false
-
                             }
-
                             UIView.animate(withDuration: 1, delay: 0.01, options:.curveEaseInOut, animations: {
-
                                 self.numberLabel.text = String(self.startNumber)
                                 self.numberLabel.alpha = 0
                             }, completion: { (true) in
-
                             })
-
                         }
-
-
-
                         self.initialView.backgroundColor = .clear
                         self.drawOverlay.isHidden = false
-
                         self.hands.isHidden = true
                         self.textViewTwo.isHidden = true
                         self.textViewThree.isHidden = true
-
-
                         self.drawOverlay.backgroundColor = #colorLiteral(red: 0.4186097383, green: 0.6832208037, blue: 0.6360456347, alpha: 0.7)
-
-                        //                        self.drawOverlay.superview?.bringSubviewToFront(self.drawOverlay)
                     }
                     handPoseRequest.maximumHandCount = 0
                 }

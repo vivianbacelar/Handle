@@ -58,7 +58,7 @@ struct ExerciseView: View {
             AppDelegate.orientationLock = .landscapeLeft // And making sure it stays that way
         }
         .onDisappear {
-            AppDelegate.orientationLock = .landscapeLeft // Unlocking the rotation when leaving the view
+            AppDelegate.orientationLock = .all // Unlocking the rotation when leaving the view
         }
         .ignoresSafeArea()
         .gesture(DragGesture().updating($dragOffset, body: { (value, state, transaction) in

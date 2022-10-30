@@ -11,21 +11,22 @@ import SwiftUI
 struct Handle_v_AgoraVaiApp: App {
     @StateObject var selectedEmoji = Emoji()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @State var currentExercise = Exercise.expand
     
     
     var body: some Scene {
         WindowGroup {
             NavigationView {
                 //            MainView()
-                Onboarding()
+                ExerciseView(currentExercise: $currentExercise)
                     .environmentObject(selectedEmoji)
-                    .onAppear {
-                        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation") // Forcing the rotation to portrait
-                        AppDelegate.orientationLock = .portrait // And making sure it stays that way
-                    }
-                    .onDisappear {
-                        AppDelegate.orientationLock = .all // Unlocking the rotation when leaving the view
-                    }
+//                    .onAppear {
+//                        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation") // Forcing the rotation to portrait
+//                        AppDelegate.orientationLock = .portrait // And making sure it stays that way
+//                    }
+//                    .onDisappear {
+//                        AppDelegate.orientationLock = .all // Unlocking the rotation when leaving the view
+//                    }
             }
         }
     }

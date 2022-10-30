@@ -34,7 +34,7 @@ struct OnboardingInfo {
                         synopsis: "Along with the exercises, Handle offers you Health 4.0 features, optional personalized notifications and a mood calendar, to help you identify and map out your peaks of stress.",
                         color: "Amarelo",
                         progressImage: "Progress4"),
-        OnboardingInfo(imageName: "Logo",
+        OnboardingInfo(imageName: "HandleOnboarding",
                         title: "Welcome",
                         synopsis: "We don't do ”conceal, don't feel” here. Stress is very real, and there's no need to push it aside. In fact, learning how and when your stress comes prevents you from getting overwhelmed when it happens. And that power is always in your hands ;)",
                         color: "Verde",

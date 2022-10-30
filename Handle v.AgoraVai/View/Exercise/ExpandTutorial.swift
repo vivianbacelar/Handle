@@ -39,7 +39,7 @@ struct ExpandTutorial: View{
             .onDisappear {
                 AppDelegate.orientationLock = .all // Unlocking the rotation when leaving the view
             }
-            .hiddenTabBar()
+//            .hiddenTabBar()
         }
     }
 
