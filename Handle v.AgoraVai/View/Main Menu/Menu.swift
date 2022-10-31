@@ -41,7 +41,7 @@ struct Menu: View {
 
                     .toolbar {
                         NavigationLink(destination: About(), label:{ Text("About")})
-                    }
+                    }.tint(Color("Verde"))
 
                     if showDetail {
                         ZStack {
@@ -118,9 +118,10 @@ struct Menu: View {
                             
                             Text("Welcome, \(textoDoUsuario)!")
                                 .scaledFont(name: "Montserrat-Regular", size: 14)
-                                .padding(.leading, 40)
-                                .padding(.top,100)
-                                .frame(width:10000)
+                                .padding(.leading, 60)
+                                .padding(.top,110)
+                                .frame(width:220)
+
                         }
                     )
                 

@@ -21,7 +21,6 @@
 		A11C60E8290C83C700F43C43 /* MyButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C60B3290C83C700F43C43 /* MyButtonStyle.swift */; };
 		A11C60E9290C83C700F43C43 /* RemoveLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C60B4290C83C700F43C43 /* RemoveLine.swift */; };
 		A11C60EA290C83C700F43C43 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C60B7290C83C700F43C43 /* SettingsView.swift */; };
-		A11C60EB290C83C700F43C43 /* Configuracao.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C60B8290C83C700F43C43 /* Configuracao.swift */; };
 		A11C60EC290C83C700F43C43 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C60BA290C83C700F43C43 /* CalendarView.swift */; };
 		A11C60ED290C83C700F43C43 /* HandHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C60BD290C83C700F43C43 /* HandHandler.swift */; };
 		A11C60EE290C83C700F43C43 /* HGR.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C60BE290C83C700F43C43 /* HGR.swift */; };
@@ -134,7 +133,6 @@
 		A11C60B3290C83C700F43C43 /* MyButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyButtonStyle.swift; sourceTree = "<group>"; };
 		A11C60B4290C83C700F43C43 /* RemoveLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveLine.swift; sourceTree = "<group>"; };
 		A11C60B7290C83C700F43C43 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		A11C60B8290C83C700F43C43 /* Configuracao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuracao.swift; sourceTree = "<group>"; };
 		A11C60BA290C83C700F43C43 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		A11C60BD290C83C700F43C43 /* HandHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandHandler.swift; sourceTree = "<group>"; };
 		A11C60BE290C83C700F43C43 /* HGR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HGR.swift; sourceTree = "<group>"; };
@@ -284,7 +282,6 @@
 			isa = PBXGroup;
 			children = (
 				A11C60B6290C83C700F43C43 /* Settings */,
-				A11C60B8290C83C700F43C43 /* Configuracao.swift */,
 				A11C60B9290C83C700F43C43 /* Progress */,
 				A11C60BB290C83C700F43C43 /* UIView */,
 				A11C60C7290C83C700F43C43 /* Auth */,
@@ -682,7 +679,6 @@
 				A11C60F4290C83C700F43C43 /* SceneDelegate.swift in Sources */,
 				A11C60F9290C83C700F43C43 /* About.swift in Sources */,
 				A11C60E8290C83C700F43C43 /* MyButtonStyle.swift in Sources */,
-				A11C60EB290C83C700F43C43 /* Configuracao.swift in Sources */,
 				A11C60FD290C83C700F43C43 /* Menu.swift in Sources */,
 				A11C60DD290C83C700F43C43 /* TimerMachine.swift in Sources */,
 				A11C60F2290C83C700F43C43 /* AppDelegate.swift in Sources */,

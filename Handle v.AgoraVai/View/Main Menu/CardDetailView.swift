@@ -21,7 +21,7 @@ struct CardDetailView: View {
     var instructions: String {card.instructions}
     var imageTutorial: String {card.imageTutorial}
     var activity: String {card.activity}
-
+    var isUnlocked: Bool {card.isUnlocked}
     
     
     @State var showExerciseView: Bool = false
@@ -90,7 +90,8 @@ struct CardDetailView: View {
                                     Image(systemName: activity)
                                         .foregroundColor(.white)
 
-                                }                                            .padding(.bottom)
+                                }
+                                .padding(.bottom)
 
 
                             }.tint(.white)
@@ -114,8 +115,7 @@ struct CardDetailView: View {
             AppDelegate.orientationLock = .all // Unlocking the rotation when leaving the view
         }
         .showTabBar()
-        
-        
+        .disabled(!isUnlocked)
     }
     
 }
@@ -129,10 +129,10 @@ struct DummyView: View {
     }
 }
 
-struct CardView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        DummyView()
-    }
-}
-
+//struct CardView_Previews: PreviewProvider {
+//
+//    static var previews: some View {
+//        DummyView()
+//    }
+//}
+//
