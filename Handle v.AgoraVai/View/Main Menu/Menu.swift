@@ -13,9 +13,10 @@ enum Exercise {
 
 struct Menu: View {
     @EnvironmentObject var showIntro: Intro
+
     @State var tapped = false
 //    @State var showIntro = true // mudar para true depois
-    var showDetail:Bool {tapped || showIntro.displayed}
+    var showDetail:Bool {tapped || showIntro.displayedIntro}
     @State var selectedCard = Card.placeholder
     @State var currentExercise = Exercise.none
     
@@ -46,16 +47,20 @@ struct Menu: View {
                     if showDetail {
                         ZStack {
                             Color.clear.background(.ultraThinMaterial)
-                            if showIntro.displayed {
-                                CircleView(showIntroIni: $showIntro.displayed)
-                            } else {
+                            if showIntro.displayedIntro{
+                                CircleView()
+                            }
+                            else {
                                 CardDetailView(card: $selectedCard, currentExercise: $currentExercise)
                                     .onTapGesture {
                                         tapped.toggle()
                                     }
                             }
                         }
+
                     }
+
+
                 }
 
                 }

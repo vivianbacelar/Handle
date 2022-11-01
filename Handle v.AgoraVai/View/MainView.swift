@@ -11,13 +11,13 @@
 import SwiftUI
 
 struct MainView: View {
-    @Binding var textoDoUsuario:String
+    @EnvironmentObject var textoDoUsuario:User
     @StateObject var selectedEmoji = Emoji()
 
     var body: some View {
 
         TabView {
-            Menu(textoDoUsuario: textoDoUsuario)
+            Menu(textoDoUsuario: textoDoUsuario.name)
                   .tabItem {
                       Label("Home", systemImage: "house")
                   }

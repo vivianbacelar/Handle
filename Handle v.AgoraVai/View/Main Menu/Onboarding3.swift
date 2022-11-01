@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Onboarding3: View {
     
-    @State var textoDoUsuario = ""
+    @EnvironmentObject var textoDoUsuario:User
     @State var showHome: Bool = false
     
     var body: some View {
@@ -27,7 +27,7 @@ struct Onboarding3: View {
                     .multilineTextAlignment(.center)
                 
                 
-                TextField("Write here...", text: $textoDoUsuario)
+                TextField("Write here...", text: $textoDoUsuario.name)
                     .textFieldStyle(.roundedBorder)
                     .padding(15)
                     .textInputAutocapitalization(.never)
@@ -39,7 +39,7 @@ struct Onboarding3: View {
                         .foregroundColor(Color("Fundo bege"))
                         .bold()
                         .fontWeight(.light)
-                }.disabled(textoDoUsuario == "")
+                }.disabled(textoDoUsuario.name == "")
                     .buttonStyle(.plain)
             }
             
@@ -47,7 +47,7 @@ struct Onboarding3: View {
         .navigationBarHidden(true)
         .fullScreenCover(isPresented: $showHome) {
    
-            MainView(textoDoUsuario: $textoDoUsuario)
+            MainView()
         }
     }
     

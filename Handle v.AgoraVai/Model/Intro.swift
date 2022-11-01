@@ -10,8 +10,10 @@ import Foundation
 class Intro:ObservableObject{
 
     @Published var displayed:Bool
+    @Published var displayedIntro: Bool
 
     init(){
-        self.displayed = true
+        self.displayed = false
+        self.displayedIntro = true
     }
 }

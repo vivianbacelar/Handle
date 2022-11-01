@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CongratsView: View {
     @State var isTapped = false
-    @State var showIntro = false
+    @EnvironmentObject var showIntro:Intro
     var body: some View {
 //        VStack{
         NavigationView{

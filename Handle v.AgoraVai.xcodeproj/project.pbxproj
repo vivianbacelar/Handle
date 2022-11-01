@@ -11,6 +11,7 @@
 		974CD7AC29108692009F0BA6 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974CD7AB29108692009F0BA6 /* VisualEffectView.swift */; };
 		974CD7AE29108896009F0BA6 /* showIntroAgain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974CD7AD29108896009F0BA6 /* showIntroAgain.swift */; };
 		974CD7B029108912009F0BA6 /* Intro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974CD7AF29108912009F0BA6 /* Intro.swift */; };
+		97D2A02329114C41007004FD /* Navigate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D2A02229114C41007004FD /* Navigate.swift */; };
 		A11C60DD290C83C700F43C43 /* TimerMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C60A6290C83C700F43C43 /* TimerMachine.swift */; };
 		A11C60DE290C83C700F43C43 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C60A7290C83C700F43C43 /* Card.swift */; };
 		A11C60DF290C83C700F43C43 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C60A8290C83C700F43C43 /* User.swift */; };
@@ -127,6 +128,7 @@
 		974CD7AB29108692009F0BA6 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
 		974CD7AD29108896009F0BA6 /* showIntroAgain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showIntroAgain.swift; sourceTree = "<group>"; };
 		974CD7AF29108912009F0BA6 /* Intro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro.swift; sourceTree = "<group>"; };
+		97D2A02229114C41007004FD /* Navigate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigate.swift; sourceTree = "<group>"; };
 		A11C60A6290C83C700F43C43 /* TimerMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerMachine.swift; sourceTree = "<group>"; };
 		A11C60A7290C83C700F43C43 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		A11C60A8290C83C700F43C43 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				A11C60B3290C83C700F43C43 /* MyButtonStyle.swift */,
 				A11C60B4290C83C700F43C43 /* RemoveLine.swift */,
 				974CD7AB29108692009F0BA6 /* VisualEffectView.swift */,
+				97D2A02229114C41007004FD /* Navigate.swift */,
 			);
 			path = ViewExtension;
 			sourceTree = "<group>";
@@ -722,6 +725,7 @@
 				A11C60FD290C83C700F43C43 /* Menu.swift in Sources */,
 				A11C60DD290C83C700F43C43 /* TimerMachine.swift in Sources */,
 				A11C60F2290C83C700F43C43 /* AppDelegate.swift in Sources */,
+				97D2A02329114C41007004FD /* Navigate.swift in Sources */,
 				A11C60FA290C83C700F43C43 /* Onboarding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

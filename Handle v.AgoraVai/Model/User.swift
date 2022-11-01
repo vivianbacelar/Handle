@@ -7,3 +7,12 @@
 
 import Foundation
 
+class User:ObservableObject{
+
+    @Published var name:String
+    // UUID
+
+    init() {
+        self.name = ""
+    }
+}

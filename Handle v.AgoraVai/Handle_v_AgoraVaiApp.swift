@@ -11,14 +11,15 @@ import SwiftUI
 struct Handle_v_AgoraVaiApp: App {
     @StateObject var selectedEmoji = Emoji()
     @StateObject var showIntro = Intro()
+    @StateObject var user = User()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @State var currentExercise = Exercise.expand
     
-    
+
+
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                //            MainView()
                 Onboarding()
 
 //                ExerciseView(currentExercise: $currentExercise)
@@ -32,6 +33,7 @@ struct Handle_v_AgoraVaiApp: App {
             }
             .environmentObject(selectedEmoji)
             .environmentObject(showIntro)
+            .environmentObject(user)
         }
 
     }
