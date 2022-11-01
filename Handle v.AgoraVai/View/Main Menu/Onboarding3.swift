@@ -43,7 +43,9 @@ struct Onboarding3: View {
                     .buttonStyle(.plain)
             }
             
-        }.fullScreenCover(isPresented: $showHome) {
+        }
+        .navigationBarHidden(true)
+        .fullScreenCover(isPresented: $showHome) {
    
             MainView(textoDoUsuario: $textoDoUsuario)
         }

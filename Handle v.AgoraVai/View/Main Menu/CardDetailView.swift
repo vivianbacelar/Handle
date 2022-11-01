@@ -30,11 +30,6 @@ struct CardDetailView: View {
     var body: some View {
         
         ZStack{
-            
-            Color(hex: 0xF2F1EE)
-                .ignoresSafeArea()
-            
-            
             RoundedRectangle(cornerRadius: 24)
                 .frame(width: 313, height: 440.8)
                 .scaledToFit()
@@ -80,7 +75,9 @@ struct CardDetailView: View {
                                         GraspTutorial()
                                     default:
                                         Text("nada")
-                                    }                                }
+                                    }
+                                }
+
                             label: {
 
                                 Group{
@@ -94,17 +91,15 @@ struct CardDetailView: View {
 
 
                             }.tint(.white)
-                                    .padding(.bottom)
-                                
-                                //                        .buttonStyle(MyButtonStyle())
-                                
+                            .padding(.bottom)
                             }
                             
 
                         }
                         
-                        
+
                     }
+
                 )}
         .onAppear {
             UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation") // Forcing the rotation to portrait
@@ -113,7 +108,7 @@ struct CardDetailView: View {
         .onDisappear {
             AppDelegate.orientationLock = .all // Unlocking the rotation when leaving the view
         }
-        .showTabBar()
+//        .showTabBar()
         
         
     }

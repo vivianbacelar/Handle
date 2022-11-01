@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		974CD7A729104968009F0BA6 /* CircleLastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974CD7A629104968009F0BA6 /* CircleLastView.swift */; };
+		974CD7AC29108692009F0BA6 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974CD7AB29108692009F0BA6 /* VisualEffectView.swift */; };
+		974CD7AE29108896009F0BA6 /* showIntroAgain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974CD7AD29108896009F0BA6 /* showIntroAgain.swift */; };
+		974CD7B029108912009F0BA6 /* Intro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974CD7AF29108912009F0BA6 /* Intro.swift */; };
 		A11C60DD290C83C700F43C43 /* TimerMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C60A6290C83C700F43C43 /* TimerMachine.swift */; };
 		A11C60DE290C83C700F43C43 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C60A7290C83C700F43C43 /* Card.swift */; };
 		A11C60DF290C83C700F43C43 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C60A8290C83C700F43C43 /* User.swift */; };
@@ -119,6 +123,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		974CD7A629104968009F0BA6 /* CircleLastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleLastView.swift; sourceTree = "<group>"; };
+		974CD7AB29108692009F0BA6 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
+		974CD7AD29108896009F0BA6 /* showIntroAgain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showIntroAgain.swift; sourceTree = "<group>"; };
+		974CD7AF29108912009F0BA6 /* Intro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro.swift; sourceTree = "<group>"; };
 		A11C60A6290C83C700F43C43 /* TimerMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerMachine.swift; sourceTree = "<group>"; };
 		A11C60A7290C83C700F43C43 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		A11C60A8290C83C700F43C43 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -244,6 +252,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		974CD7A829104DDC009F0BA6 /* Grasp */ = {
+			isa = PBXGroup;
+			children = (
+				A11C60D4290C83C700F43C43 /* GraspTutorial.swift */,
+			);
+			path = Grasp;
+			sourceTree = "<group>";
+		};
+		974CD7A929104DDF009F0BA6 /* Expand */ = {
+			isa = PBXGroup;
+			children = (
+				A11C60D6290C83C700F43C43 /* ExpandTutorial.swift */,
+				A11C60D7290C83C700F43C43 /* ExerciseView.swift */,
+				A11C60D8290C83C700F43C43 /* StartedExercise.swift */,
+				A11C60D5290C83C700F43C43 /* CongratsView.swift */,
+				A11C60DA290C83C700F43C43 /* LastView.swift */,
+				974CD7AD29108896009F0BA6 /* showIntroAgain.swift */,
+			);
+			path = Expand;
+			sourceTree = "<group>";
+		};
+		974CD7AA29104DE4009F0BA6 /* Embrace */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Embrace;
+			sourceTree = "<group>";
+		};
 		A11C60A5290C83C700F43C43 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +290,7 @@
 				A11C60AA290C83C700F43C43 /* OnboardingInfo.swift */,
 				A11C60AB290C83C700F43C43 /* Texto.swift */,
 				A11C60AC290C83C700F43C43 /* Emoji.swift */,
+				974CD7AF29108912009F0BA6 /* Intro.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -274,6 +311,7 @@
 				A11C60B2290C83C700F43C43 /* ColorExtension.swift */,
 				A11C60B3290C83C700F43C43 /* MyButtonStyle.swift */,
 				A11C60B4290C83C700F43C43 /* RemoveLine.swift */,
+				974CD7AB29108692009F0BA6 /* VisualEffectView.swift */,
 			);
 			path = ViewExtension;
 			sourceTree = "<group>";
@@ -353,6 +391,7 @@
 				A11C60D0290C83C700F43C43 /* Begin.swift */,
 				A11C60D1290C83C700F43C43 /* CardDetailView.swift */,
 				A11C60D2290C83C700F43C43 /* Onboarding2.swift */,
+				974CD7A629104968009F0BA6 /* CircleLastView.swift */,
 			);
 			path = "Main Menu";
 			sourceTree = "<group>";
@@ -360,13 +399,10 @@
 		A11C60D3290C83C700F43C43 /* Exercise */ = {
 			isa = PBXGroup;
 			children = (
-				A11C60D4290C83C700F43C43 /* GraspTutorial.swift */,
-				A11C60D5290C83C700F43C43 /* CongratsView.swift */,
-				A11C60D6290C83C700F43C43 /* ExpandTutorial.swift */,
-				A11C60D7290C83C700F43C43 /* ExerciseView.swift */,
-				A11C60D8290C83C700F43C43 /* StartedExercise.swift */,
+				974CD7AA29104DE4009F0BA6 /* Embrace */,
+				974CD7A929104DDF009F0BA6 /* Expand */,
+				974CD7A829104DDC009F0BA6 /* Grasp */,
 				A11C60D9290C83C700F43C43 /* EmbraceTutorial.swift */,
-				A11C60DA290C83C700F43C43 /* LastView.swift */,
 				A11C60DB290C83C700F43C43 /* BackPersonalized.swift */,
 			);
 			path = Exercise;
@@ -638,6 +674,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				974CD7A729104968009F0BA6 /* CircleLastView.swift in Sources */,
 				A11C6107290C83C700F43C43 /* LastView.swift in Sources */,
 				A11C60EA290C83C700F43C43 /* SettingsView.swift in Sources */,
 				A11C60FE290C83C700F43C43 /* Begin.swift in Sources */,
@@ -653,6 +690,8 @@
 				A11C60E1290C83C700F43C43 /* OnboardingInfo.swift in Sources */,
 				A11C60EE290C83C700F43C43 /* HGR.swift in Sources */,
 				A11C60ED290C83C700F43C43 /* HandHandler.swift in Sources */,
+				974CD7B029108912009F0BA6 /* Intro.swift in Sources */,
+				974CD7AC29108692009F0BA6 /* VisualEffectView.swift in Sources */,
 				A11C6102290C83C700F43C43 /* CongratsView.swift in Sources */,
 				A11C6106290C83C700F43C43 /* EmbraceTutorial.swift in Sources */,
 				A11C60EC290C83C700F43C43 /* CalendarView.swift in Sources */,
@@ -664,6 +703,7 @@
 				A11C60E7290C83C700F43C43 /* ColorExtension.swift in Sources */,
 				A11C60E3290C83C700F43C43 /* Emoji.swift in Sources */,
 				A11C6105290C83C700F43C43 /* StartedExercise.swift in Sources */,
+				974CD7AE29108896009F0BA6 /* showIntroAgain.swift in Sources */,
 				A11C60F8290C83C700F43C43 /* CardView.swift in Sources */,
 				A11C60E5290C83C700F43C43 /* ScaledFont.swift in Sources */,
 				A11C60E2290C83C700F43C43 /* Texto.swift in Sources */,

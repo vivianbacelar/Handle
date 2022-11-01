@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct Handle_v_AgoraVaiApp: App {
     @StateObject var selectedEmoji = Emoji()
+    @StateObject var showIntro = Intro()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @State var currentExercise = Exercise.expand
     
@@ -18,8 +19,9 @@ struct Handle_v_AgoraVaiApp: App {
         WindowGroup {
             NavigationView {
                 //            MainView()
-                ExerciseView(currentExercise: $currentExercise)
-                    .environmentObject(selectedEmoji)
+                Onboarding()
+
+//                ExerciseView(currentExercise: $currentExercise)
 //                    .onAppear {
 //                        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation") // Forcing the rotation to portrait
 //                        AppDelegate.orientationLock = .portrait // And making sure it stays that way
@@ -28,7 +30,10 @@ struct Handle_v_AgoraVaiApp: App {
 //                        AppDelegate.orientationLock = .all // Unlocking the rotation when leaving the view
 //                    }
             }
+            .environmentObject(selectedEmoji)
+            .environmentObject(showIntro)
         }
+
     }
 }
 

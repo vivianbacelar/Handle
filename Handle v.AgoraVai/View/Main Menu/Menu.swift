@@ -12,9 +12,10 @@ enum Exercise {
 }
 
 struct Menu: View {
+    @EnvironmentObject var showIntro: Intro
     @State var tapped = false
-    @State var showIntro = true // mudar para true depois
-    var showDetail:Bool {tapped || showIntro}
+//    @State var showIntro = true // mudar para true depois
+    var showDetail:Bool {tapped || showIntro.displayed}
     @State var selectedCard = Card.placeholder
     @State var currentExercise = Exercise.none
     
@@ -37,17 +38,16 @@ struct Menu: View {
 
                         cards
                     }
-
-
+                    .showTabBar()
                     .toolbar {
                         NavigationLink(destination: About(), label:{ Text("About")})
                     }
 
                     if showDetail {
                         ZStack {
-                            blurBackground
-                            if showIntro {
-                                CircleView(showIntro: $showIntro)
+                            Color.clear.background(.ultraThinMaterial)
+                            if showIntro.displayed {
+                                CircleView(showIntroIni: $showIntro.displayed)
                             } else {
                                 CardDetailView(card: $selectedCard, currentExercise: $currentExercise)
                                     .onTapGesture {
@@ -56,26 +56,23 @@ struct Menu: View {
                             }
                         }
                     }
+                }
 
                 }
             }
-        }
         .onAppear {
             UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation") // Forcing the rotation to portrait
             AppDelegate.orientationLock = .portrait // And making sure it stays that way
         }
         .onDisappear {
-                    AppDelegate.orientationLock = .all // Unlocking the rotation when leaving the view
-                }
+            AppDelegate.orientationLock = .all // Unlocking the rotation when leaving the view
+        }
+        }
+
         
         
-    }
-    
-    
-    var blurBackground: some View{
-        Color.clear.background(.ultraThinMaterial)
-        
-    }
+
+
     
     
     var cards: some View {

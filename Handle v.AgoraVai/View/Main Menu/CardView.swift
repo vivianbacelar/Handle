@@ -10,10 +10,8 @@ import SwiftUI
 struct CardView: View {
     let geometry: GeometryProxy
     let card:Card
-    
     @Binding var tapped:Bool
     @Binding var selectedCard:Card
-    
     var title:String {card.title}
     var color: Color {card.color}
     var image: String {card.image}

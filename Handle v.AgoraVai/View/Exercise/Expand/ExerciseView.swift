@@ -8,7 +8,6 @@
 import SwiftUI
 
 
-
 struct ExerciseView: View {
     //    @StateObject var sharedVM: SharedViewModel = SharedViewModel()
 
@@ -18,8 +17,9 @@ struct ExerciseView: View {
     @Environment(\.dismiss) var dismiss
     @Binding var currentExercise: Exercise
 
+    @State var showExercise: Bool = false
+
     var body: some View {
-        //        NavigationView{
         ZStack{
             Color(hex:0xEED294)
 
@@ -27,7 +27,7 @@ struct ExerciseView: View {
             Image("PreviewExercise2")
                 .resizable()
                 .scaledToFit()
-                .navigationBarBackButtonHidden(false)
+                .navigationBarBackButtonHidden(true)
                 .navigationBarItems(leading:
                 Button(action : {
                     currentExercise = .none
@@ -37,10 +37,8 @@ struct ExerciseView: View {
                 })
 
 
-            NavigationLink {
-                StartedExercise()
-                    .toolbar(.hidden)
-                    .ignoresSafeArea()
+            Button {
+                showExercise = true
             } label: {
                 Group{
                     Text("OK")
@@ -53,13 +51,6 @@ struct ExerciseView: View {
 
 
         }
-        .onAppear {
-            UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation") // Forcing the rotation to portrait
-            AppDelegate.orientationLock = .landscapeLeft // And making sure it stays that way
-        }
-        .onDisappear {
-            AppDelegate.orientationLock = .all // Unlocking the rotation when leaving the view
-        }
         .ignoresSafeArea()
         .gesture(DragGesture().updating($dragOffset, body: { (value, state, transaction) in
 
@@ -68,9 +59,22 @@ struct ExerciseView: View {
             }
 
         }))
+        .navigationBarHidden(true)
 
-        //        }
-        
+
+        .fullScreenCover(isPresented: self.$showExercise) {
+                StartedExercise()
+                    .toolbar(.hidden)
+                    .ignoresSafeArea()
+        }
+        .onAppear {
+            UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation") // Forcing the rotation to portrait
+            AppDelegate.orientationLock = .landscapeLeft // And making sure it stays that way
+        }
+        .onDisappear {
+            AppDelegate.orientationLock = .all // Unlocking the rotation when leaving the view
+        }
+
     }
 }
 

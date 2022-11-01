@@ -10,10 +10,10 @@ import SwiftUI
 
 struct ImagePicker:UIViewControllerRepresentable{
 
-    @State var nextView = false
+    @Binding var inExercise:Bool
 
     func makeUIViewController(context: Context) -> some UIViewController {
-        let next = CameraViewController()
+        let next = CameraViewController(inExercise: $inExercise)
         return next
     }
 

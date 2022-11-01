@@ -72,7 +72,7 @@ class CameraViewController: UIViewController {
         // Update UITextView font size and colour
         textView.font = UIFont.systemFont(ofSize: 36)
         textView.font = UIFont(name: "Montserrat-Medium", size: 36)
-        textView.textColor = .black
+        textView.textColor = .white
 
         // Make UITextView Editable
         textView.isEditable = false
@@ -163,7 +163,11 @@ class CameraViewController: UIViewController {
 //            cameraView.removeFromSuperview()
             setupCongratsHC()
             setupCongratsConstraints()
-            
+//            self.presentingViewController?.dismiss(animated: false, completion:nil)
+//            self.dismissParentViewUI()
+            self.inExercise.wrappedValue = false
+//            self.dismiss(animated: true)
+
 //            cameraView.removeFromSuperview()
             return
         }
@@ -176,6 +180,18 @@ class CameraViewController: UIViewController {
         TimerMachine.instance.start()
 
     }
+
+
+    var inExercise:Binding<Bool>
+    init(inExercise: Binding<Bool>) {
+        self.inExercise = inExercise
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
 
     func handsConstraints() {
         hands.widthAnchor.constraint(equalToConstant: 249).isActive = true
@@ -265,8 +281,7 @@ class CameraViewController: UIViewController {
         switch UIDevice.current.orientation{
             // Home button on top
         case UIDeviceOrientation.portraitUpsideDown:
-
-            cameraView.previewLayer.connection?.videoOrientation = .landscapeLeft
+            cameraView.previewLayer.connection?.videoOrientation = .portrait
 
             // Home button on right
         case UIDeviceOrientation.landscapeLeft:
@@ -274,22 +289,22 @@ class CameraViewController: UIViewController {
 
             //            textView.isHidden = false
 //            textView.backgroundColor = .red
-            cameraView.previewLayer.connection?.videoOrientation = .landscapeRight
+            cameraView.previewLayer.connection?.videoOrientation = .portrait
 
         case UIDeviceOrientation.landscapeRight:
             //            textView.isHidden = false
 //            print("TÁ DIREITA")
             textView.center = cameraView.center
-            cameraView.previewLayer.connection?.videoOrientation = .landscapeLeft
+            cameraView.previewLayer.connection?.videoOrientation = .portrait
 
         case UIDeviceOrientation.portrait:
             textView.isHidden = true
 //            textViewTwo.text = "Please turn your phone to the right"
 
-            cameraView.previewLayer.connection?.videoOrientation = .landscapeLeft
+            cameraView.previewLayer.connection?.videoOrientation = .portrait
 
         default:
-            break
+            cameraView.previewLayer.connection?.videoOrientation = .portrait
         }
 
     }
@@ -310,25 +325,6 @@ class CameraViewController: UIViewController {
 
 
 
-
-        if #available(iOS 16.0, *) {
-            self.forceLandscape = true
-            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
-            self.setNeedsUpdateOfSupportedInterfaceOrientations()
-            DispatchQueue.main.asyncAfter(deadline: .now() , execute: {
-                //                self.textViewTwo.center = self.cam
-                self.textView.center = self.cameraView.center
-                //                self.hands.center = self.cameraView.center
-                self.cameraView.previewLayer.connection?.videoOrientation = .landscapeLeft
-
-                windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: .landscapeLeft)){
-                    error in
-//                    print(error)
-//                    print(windowScene.effectiveGeometry)
-                }
-            })
-
-        }
     }
 
     override func viewDidAppear(_ animated: Bool){
@@ -347,6 +343,36 @@ class CameraViewController: UIViewController {
         } catch {
             AppError.display(error, inViewController: self)
         }
+
+
+
+        if #available(iOS 16.0, *) {
+            self.forceLandscape = true
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+            self.setNeedsUpdateOfSupportedInterfaceOrientations()
+            DispatchQueue.main.asyncAfter(deadline: .now() , execute: {
+                //                self.textViewTwo.center = self.cam
+                self.textView.center = self.cameraView.center
+                //                self.hands.center = self.cameraView.center
+                self.cameraView.previewLayer.connection!.videoOrientation = .landscapeLeft
+
+                windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: .landscapeLeft)){
+                    error in
+//                    print(error)
+//                    print(windowScene.effectiveGeometry)
+                }
+            })
+
+        }
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        self.initialView.removeFromSuperview()
+        self.cameraView.removeFromSuperview()
+        self.view.removeFromSuperview()
+
+
+        super.viewDidDisappear(animated)
     }
 
     override func viewWillDisappear(_ animated: Bool) {

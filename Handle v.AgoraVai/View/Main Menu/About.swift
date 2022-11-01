@@ -180,6 +180,7 @@ struct About: View {
                             }
                         }
                     }
+            .hiddenTabBar()
                     
                 }
                         

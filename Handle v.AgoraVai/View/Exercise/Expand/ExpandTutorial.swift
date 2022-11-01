@@ -8,9 +8,10 @@
 import Foundation
 import SwiftUI
 
-struct ExpandTutorial: View{
+struct ExpandTutorial: View {
     @Binding var currentExercise:Exercise
 
+    @State var showExercise: Bool = false
     var body: some View{
         NavigationView{
             ZStack{
@@ -19,10 +20,8 @@ struct ExpandTutorial: View{
                     .scaledToFill()
                     .ignoresSafeArea()
                 
-                NavigationLink {
-                    ExerciseView(currentExercise: $currentExercise)
-                        .toolbar(.hidden)
-                        .ignoresSafeArea()
+                Button {
+                    showExercise = true
                 } label: {
                     Group{
                         Text("Got it, let's begin")
@@ -39,7 +38,13 @@ struct ExpandTutorial: View{
             .onDisappear {
                 AppDelegate.orientationLock = .all // Unlocking the rotation when leaving the view
             }
-//            .hiddenTabBar()
+            .hiddenTabBar()
+            .fullScreenCover(isPresented: $showExercise) {
+                ExerciseView(currentExercise: $currentExercise)
+                    .toolbar(.hidden)
+                    .ignoresSafeArea()
+            }
+
         }
     }
 
