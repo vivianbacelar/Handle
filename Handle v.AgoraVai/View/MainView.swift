@@ -13,27 +13,24 @@ import SwiftUI
 struct MainView: View {
     @EnvironmentObject var textoDoUsuario:User
     @StateObject var selectedEmoji = Emoji()
+    @EnvironmentObject var showIntro:Intro
 
     var body: some View {
+
 
         TabView {
             Menu(textoDoUsuario: textoDoUsuario.name)
                   .tabItem {
                       Label("Home", systemImage: "house")
                   }
-
             CalendarView()
                 .tabItem {
                     Label("Progress", systemImage: "calendar")
                 }
-
-
             SettingsView()
                   .tabItem {
                     Label("Settings", systemImage: "gearshape")
                 }
-
-
         }.onAppear(){
             UITabBar.appearance().barTintColor = UIColor(Color(hex: 0x245150))
 

@@ -15,7 +15,7 @@ struct Menu: View {
     @EnvironmentObject var showIntro: Intro
 
     @State var tapped = false
-//    @State var showIntro = true // mudar para true depois
+    //    @State var showIntro = true // mudar para true depois
     var showDetail:Bool {tapped || showIntro.displayedIntro}
     @State var selectedCard = Card.placeholder
     @State var currentExercise = Exercise.none
@@ -33,17 +33,14 @@ struct Menu: View {
                 GraspTutorial()
             case .none:
                 ZStack{
-
                     ScrollView{
                         welcome
-
                         cards
                     }
                     .showTabBar()
                     .toolbar {
                         NavigationLink(destination: About(), label:{ Text("About")})
                     }.tint(Color("Verde"))
-
                     if showDetail {
                         ZStack {
                             Color.clear.background(.ultraThinMaterial)
@@ -54,17 +51,13 @@ struct Menu: View {
                                 CardDetailView(card: $selectedCard, currentExercise: $currentExercise)
                                     .onTapGesture {
                                         tapped.toggle()
-                                    }
+                                }
                             }
                         }
-
                     }
-
-
-                }
-
                 }
             }
+        }
         .onAppear {
             UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation") // Forcing the rotation to portrait
             AppDelegate.orientationLock = .portrait // And making sure it stays that way
@@ -72,13 +65,7 @@ struct Menu: View {
         .onDisappear {
             AppDelegate.orientationLock = .all // Unlocking the rotation when leaving the view
         }
-        }
-
-        
-        
-
-
-    
+    }
     
     var cards: some View {
         GeometryReader { geometry in
@@ -101,7 +88,6 @@ struct Menu: View {
         
         VStack{
             HStack{
-                
                 RoundedRectangle(cornerRadius: 0)
                     .frame(width: 67, height: 67)
                     .padding()
@@ -126,7 +112,6 @@ struct Menu: View {
 
                         }
                     )
-                
                 
                 Spacer()
                 

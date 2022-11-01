@@ -37,10 +37,10 @@ struct Onboarding3: View {
 //                    .foregroundColor(.clear)
 //                    .padding(.vertical, 10)
                 
-                    .onChange(of: textoDoUsuario, perform: { _ in
-                                if textoDoUsuario.count > characterLimit {
-                                    let limitedText = textoDoUsuario.dropLast()
-                                    textoDoUsuario = String(limitedText)
+                    .onChange(of: textoDoUsuario.name, perform: { _ in
+                        if textoDoUsuario.name.count > characterLimit {
+                            let limitedText = textoDoUsuario.name.dropLast()
+                            textoDoUsuario.name = String(limitedText)
                                 }
                             })
                 

@@ -7,12 +7,16 @@
 
 import Foundation
 
-class User:ObservableObject{
+class User:Equatable,ObservableObject{
 
     @Published var name:String
     // UUID
 
     init() {
         self.name = ""
+    }
+
+    static func ==(lhs: User, rhs: User) -> Bool {
+        lhs.name == rhs.name
     }
 }
