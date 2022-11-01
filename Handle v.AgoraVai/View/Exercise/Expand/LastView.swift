@@ -86,7 +86,12 @@ struct LastView: View {
             Button {
                 showIntro.displayed.toggle()
             } label: {
-                Text("Ok")
+                HStack{
+                    Text("Ok")
+                        .scaledFont(name: "Montserrat-Medium", size: 14)
+                    Text(">")
+                        .scaledFont(name: "Montserrat-Medium", size: 26)
+                }.foregroundColor(Color(hex: 0x245150))
             }
 
 

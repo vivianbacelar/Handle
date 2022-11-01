@@ -145,7 +145,7 @@ class CameraViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = label.font.withSize(98)
-        label.textColor = .black
+        label.textColor = .white
         return label
     }()
 
