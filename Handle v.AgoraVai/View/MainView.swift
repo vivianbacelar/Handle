@@ -30,14 +30,43 @@ struct MainView: View {
             SettingsView()
                   .tabItem {
                     Label("Settings", systemImage: "gearshape")
-                }
+                  }.tint(Color("Verde"))
         }.onAppear(){
-            UITabBar.appearance().barTintColor = UIColor(Color(hex: 0x245150))
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = UIColor(named: "Fundo bege")
+            appearance.shadowColor = nil
+            appearance.stackedItemPositioning = .centered
+            appearance.stackedItemSpacing = 0
+            appearance.selectionIndicatorTintColor = .red
+            appearance.stackedLayoutAppearance.selected.iconColor = UIColor(named: "Marinho")
+            appearance.stackedLayoutAppearance.selected.titleTextAttributes = [
+                NSAttributedString.Key.foregroundColor: UIColor(named: "Marinho")
+            ]
+            appearance.stackedLayoutAppearance.normal.iconColor = UIColor(named: "Verde")
+            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [
+                NSAttributedString.Key.foregroundColor: UIColor(named: "Verde")
+            ]
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+            UITabBar.appearance().standardAppearance = appearance
+//            UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.red], for: .normal)
+//
+//            UITabBar.appearance().tintColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
 
-            UITabBar.appearance().unselectedItemTintColor = UIColor(Color(hex: 0x618571))
-            UITabBar.appearance().backgroundColor = UIColor(Color(hex:0xE4E4E4))
 
-            UITabBar.appearance().tintColor = .red // Not working
+//            let newAppearance = UITabBar.appearance()
+//
+//            newAppearance.barTintColor = .red
+//
+//            UITabBar.appearance().scrollEdgeAppearance = newAppearance
+//            UITabBar.appearance().standardAppearance = newAppearance
+            
+//            UITabBar.appearance().barTintColor = UIColor(Color(hex: 0x245150))
+//
+//            UITabBar.appearance().unselectedItemTintColor = UIColor(Color(hex: 0x618571))
+//            UITabBar.appearance().backgroundColor = UIColor(Color(hex:0xE4E4E4))
+//
+//            UITabBar.appearance().tintColor = .red // Not working
 
         }
         .environmentObject(selectedEmoji)

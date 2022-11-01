@@ -48,7 +48,7 @@ struct Menu: View {
                                 CircleView()
                             }
                             else {
-                                CardDetailView(card: $selectedCard, currentExercise: $currentExercise)
+                                CardDetailView(card: $selectedCard, tapped: $tapped, currentExercise: $currentExercise)
                                     .onTapGesture {
                                         tapped.toggle()
                                 }

@@ -20,6 +20,7 @@ struct Handle_v_AgoraVaiApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
+//                Onboarding()
                 Onboarding()
 
 //                ExerciseView(currentExercise: $currentExercise)
@@ -34,6 +35,7 @@ struct Handle_v_AgoraVaiApp: App {
             .environmentObject(selectedEmoji)
             .environmentObject(showIntro)
             .environmentObject(user)
+//            .environment(\.locale, Locale(identifier: "pt-BR"))
         }
 
     }

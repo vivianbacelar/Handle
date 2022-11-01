@@ -20,11 +20,13 @@ struct CalendarView: View {
                 Spacer()
                 Spacer()
                 Text("Stress Check")
-                    .scaledFont(name: "Montserrat-Light", size: 28)
+                    .scaledFont(name: "Montserrat-Regular", size: 28)
+                    .foregroundColor(Color("Marinho"))
                     .padding(.trailing, 178)
                 
                 Text("Punctual as usual. But is your calmzone")
-                    .scaledFont(name: "Montserrat-Light", size: 14)
+                    .scaledFont(name: "Montserrat-Regular", size: 14)
+                    .foregroundColor(Color("Marinho"))
                     .padding(.trailing, 75)
                 
                 
@@ -59,6 +61,7 @@ struct CalendarView: View {
         .aspectRatio(1.5,contentMode: .fit)
         .datePickerStyle(.graphical)
         .background(.white)
+        .accentColor(Color("Verde"))
         .cornerRadius(20)
         .padding()
         .shadow(radius:4)
@@ -77,8 +80,8 @@ struct CalendarView: View {
                     VStack{
                         
                         
-                        Text("Stress of the day")
-                            .scaledFont(name: "Montserrat-Medium", size: 14)
+                        Text("Moodswings")
+                            .scaledFont(name: "Montserrat-SemiBold", size: 14)
                             .foregroundColor(Color(hex:0xEFEEEB))
                             .padding()
                         
