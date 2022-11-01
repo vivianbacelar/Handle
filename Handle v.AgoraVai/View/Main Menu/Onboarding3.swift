@@ -11,6 +11,7 @@ struct Onboarding3: View {
     
     @EnvironmentObject var textoDoUsuario:User
     @State var showHome: Bool = false
+    @State private var characterLimit = 10
     
     var body: some View {
         
@@ -31,6 +32,18 @@ struct Onboarding3: View {
                     .textFieldStyle(.roundedBorder)
                     .padding(15)
                     .textInputAutocapitalization(.never)
+//                Text("Character count: \(textoDoUsuario.count)")
+//                    .font(.custom("Montserrat-Regular", size: 16))
+//                    .foregroundColor(.clear)
+//                    .padding(.vertical, 10)
+                
+                    .onChange(of: textoDoUsuario, perform: { _ in
+                                if textoDoUsuario.count > characterLimit {
+                                    let limitedText = textoDoUsuario.dropLast()
+                                    textoDoUsuario = String(limitedText)
+                                }
+                            })
+                
                 
                 Button {
                     showHome = true

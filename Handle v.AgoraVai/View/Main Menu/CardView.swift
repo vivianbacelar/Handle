@@ -56,7 +56,6 @@ struct CardView: View {
                     selectedCard = card
                 }
             }
-        
     }
 }
 

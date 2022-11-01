@@ -22,19 +22,7 @@ struct Begin: View {
                     .aspectRatio(1, contentMode: .fit)
                     .ignoresSafeArea()
                     .padding(.bottom,120)
-                //                    .animation(.easeOut, value:)
-                
-                
-                
-                //                NavigationLink{
-                //                    Onboarding()
-                //                } label: {
-                //                    Text("Next")
-                //                        .foregroundColor(.white)
-                //                        .bold()
-                //                        .fontWeight(.light)
-                //                        .padding(.bottom, 750)
-                //                        .padding(.leading, 300)
+            
             }
             
         }

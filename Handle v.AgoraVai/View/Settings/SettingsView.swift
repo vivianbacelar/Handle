@@ -10,6 +10,7 @@ import Accessibility
 
 struct SettingsView: View {
     
+    @State private var selected = "English"
     @State var voiceGuide: Bool = false
     @State var headphoneAdaptations: Bool = false
     @State var backgroundSounds: Bool = false
@@ -21,62 +22,82 @@ struct SettingsView: View {
                 Color("Fundo bege")
                     .ignoresSafeArea()
                 
+                Text("Settings")
+                    .scaledFont(name: "Montserrat-Regular", size: 28)
+                    .foregroundColor(Color("Marinho"))
+                    .multilineTextAlignment(.trailing)
+                    .padding(.top, -355)
+                    .padding(.leading, -180)
+                
+                
+                Text("Handle your stress the best way you can")
+                    .scaledFont(name: "Montserrat-Regular", size: 14)
+                    .foregroundColor(Color("Marinho"))
+                    .padding(.top, -320)
+                    .padding(.leading, -75)
+                
+                
+                Text("Language")
+                    .scaledFont(name: "Montserrat-Regular", size: 18)
+                    .foregroundColor(Color("Marinho"))
+                    .padding(.top,-280)
+                    .padding(.leading, -175)
+                
+                
                 VStack{
-                    
-                    Text("Settings")
-                        .scaledFont(name: "Montserrat-Regular", size: 28)
-                        .foregroundColor(Color("Marinho"))
-                        .multilineTextAlignment(.trailing)
-                        .padding(.top, -340)
-                    
-                    
-                    Text("De-stress the best way you can")
-                        .scaledFont(name: "Montserrat-Regular", size: 14)
-                        .foregroundColor(Color("Marinho"))
-                        .padding(.top, -300)
-                    
-                    
-                        .padding(.trailing)
-                    
-                }
-                    
-                    VStack{
+                    //                        Color(.red)
+                    Picker("Language", selection: $selected){
+                        Text("English")
+                            .tag("English")
+                        Text("Portuguese")
+                            .tag("Portuguese")
                         
-                        Text("Language")
-                            .scaledFont(name: "Montserrat-Regular", size: 18)
-                            .foregroundColor(Color("Marinho"))
-                            .padding()
                         
+                    }
+                    .pickerStyle(.segmented)
+                    .background(Color("Fundo bege"))
+                    .frame(width: 300)
+                    .padding(.top,-140)
+                    
+                    
+                    
+                    
+                    
+                    HStack{
                         
                         if voiceGuide == true{
-                            //                    color.black.ignoresSafeArea(.all)
+                
+                            
                         }
-                        
                         Toggle(isOn:$voiceGuide){
-                            Text("Voice-guided Activities")
+                            Text("Voice-Guided Activities")
                                 .scaledFont(name: "Montserrat-Regular", size: 18)
                                 .foregroundColor(Color("Marinho"))
-                                .padding()
+                            
                             
                         }
                         
-                        .padding(.vertical,10)
-                        
-                        if headphoneAdaptations == true {
-                            
-                        }
-                        
+                    }.padding()
+                    
+               
+                    
+                    HStack{
                         Toggle(isOn:$headphoneAdaptations){
                             Text("Headphone Adaptations")
                                 .scaledFont(name: "Montserrat-Regular", size: 18)
                                 .foregroundColor(Color("Marinho"))
-                                .padding()
                             
                             
                         }
+                        if headphoneAdaptations == true {
+                            
+                        }
                         
-                        .padding(.vertical,10)
                         
+                    }.padding()
+                    
+                    
+                    HStack{
                         if backgroundSounds == true {
                             
                         }
@@ -85,24 +106,42 @@ struct SettingsView: View {
                             Text("Background Sounds")
                                 .scaledFont(name: "Montserrat-Regular", size: 18)
                                 .foregroundColor(Color("Marinho"))
-                                .padding()
+                            
                             
                             
                         }
-                    }
+                    }.padding()
+                    
+                }
+                
+                
+                
+                
+                
+                
+                
+               
+                
+                
+                
+                
+                
+                
+
             }
-            
-            //                .preferredColorScheme(paletaDaltonica ? .dark : .light)
-            
         }
+        
+        //                .preferredColorScheme(paletaDaltonica ? .dark : .light)
+        
     }
-    
-    
-    struct SettingsView_Previews: PreviewProvider {
-        static var previews: some View {
-            SettingsView()
-        }
-    }
-    
-    
 }
+
+
+struct SettingsView_Previews: PreviewProvider {
+    static var previews: some View {
+        SettingsView()
+    }
+}
+
+
+

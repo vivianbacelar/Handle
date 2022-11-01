@@ -117,10 +117,12 @@ struct Onboarding: View {
                 if isLast == false {
                     NavigationLink {
                         Onboarding3()
+
                     } label: {
                         Text(shownText)
                             .font(.custom("Montserrat-Bold", size: 15))
                             .foregroundColor(.white)
+
                         //                    } else {
                         //                        isLast == true
                         //                        }
@@ -129,6 +131,7 @@ struct Onboarding: View {
                     .padding(.horizontal, 16)
                     .padding(.vertical, 8)
                 }
+                
 
             }
 
