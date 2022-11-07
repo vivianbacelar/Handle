@@ -64,6 +64,8 @@ struct CircleView: View {
                 showIntro.displayedIntro.toggle()
             } label: {
                 Text("Ok")
+                    .foregroundColor(Color("Verde"))
+                    .bold()
             }
         }
     }

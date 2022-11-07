@@ -40,6 +40,7 @@ struct Handle_v_AgoraVaiApp: App {
                     break
                 }
             })
+//            .environment(\.locale, Locale(identifier: "pt-BR"))
         }
 
     }

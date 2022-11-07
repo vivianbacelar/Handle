@@ -11,7 +11,8 @@ import SwiftUI
 // MARK: - Vivian
 struct CardDetailView: View {
     @Binding var card:Card
-    
+    @Environment(\.dismiss) private var dismiss
+    @Binding var tapped: Bool
     var title:String {card.title}
     var color:Color {card.color}
     var minutes:String { card.minutes }
@@ -28,8 +29,23 @@ struct CardDetailView: View {
     @Binding var currentExercise: Exercise
     
     var body: some View {
-        
-        ZStack{
+        ZStack {
+            VStack {
+                Button {
+                    tapped.toggle()
+                } label: {
+                    HStack {
+                        Image(systemName: "chevron.backward")
+                            .foregroundColor(Color("Verde"))
+                            .font(.system(size: 25))
+                            .padding(.leading)
+                            .padding (.top, -30)
+                        Spacer()
+                    }
+                }
+                Spacer()
+            }
+
             RoundedRectangle(cornerRadius: 24)
                 .frame(width: 313, height: 440.8)
                 .scaledToFit()
@@ -64,7 +80,7 @@ struct CardDetailView: View {
                                 .scaledToFit()
                                 .aspectRatio(0.75,contentMode: .fit)
                             HStack{
-
+                                
                                 NavigationLink {
                                     switch title{
                                     case "Embrace":
@@ -77,50 +93,50 @@ struct CardDetailView: View {
                                         Text("nada")
                                     }
                                 }
-
+                                
                             label: {
-
+                                
                                 Group{
                                     Text(title)
                                         .scaledFont(name: "Montserrat-SemiBold", size: 30)
                                         .foregroundColor(.white)
                                     Image(systemName: activity)
                                         .foregroundColor(.white)
-
+                                    
                                 }
                                 .padding(.bottom)
-
-
+                                
+                                
                             }.tint(.white)
-                            .padding(.bottom)
+                                    .padding(.bottom)
                             }
                             
-
+                            
                         }
                         
-
+                        
                     }
-
+                        .onAppear {
+                            UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation") // Forcing the rotation to portrait
+                            AppDelegate.orientationLock = .portrait // And making sure it stays that way
+                        }
+                        .onDisappear {
+                            AppDelegate.orientationLock = .all // Unlocking the rotation when leaving the view
+                        }
+                        .showTabBar()
+                        .disabled(!isUnlocked)
                 )}
-        .onAppear {
-            UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation") // Forcing the rotation to portrait
-            AppDelegate.orientationLock = .portrait // And making sure it stays that way
         }
-        .onDisappear {
-            AppDelegate.orientationLock = .all // Unlocking the rotation when leaving the view
-        }
-        .showTabBar()
-        .disabled(!isUnlocked)
-    }
-    
+        
 }
+
 
 
 struct DummyView: View {
     @State var card = Card.placeholder
     
     var body: some View {
-        CardDetailView(card: $card, currentExercise: .constant(.none))
+        CardDetailView(card: $card, tapped: .constant(false), currentExercise: .constant(.none))
     }
 }
 
