@@ -30,6 +30,24 @@ class CameraViewController: UIViewController {
     private var lb = UILabel()
     private let shape = CAShapeLayer() // timer circle
     lazy var startNumber = 4 // inicio timer
+    private let totalDisplay = terapies.compactMap{$0.timetoDisplay}.reduce(0,+)
+    var index = 0
+    let circleTimer = CircularCountDownView(frame: CGRect(x: 20, y: 20, width: 60, height: 60), time: 482.0, step: 1.0) // ajustar tempo depois
+
+
+
+
+    fileprivate func setupProgressView() {
+        circleTimer.ring.backgroundBarColor = .lightGray
+        circleTimer.ring.foregroundBarColor = .white
+        circleTimer.ring.maximumBarColor = .orange
+        circleTimer.ring.lineWidth = 5
+        circleTimer.ring.textSize = 2
+        circleTimer.ring.textColor = .systemRed
+        drawOverlay.addSubview(circleTimer)
+
+    }
+
 
     fileprivate let congratsView = UIHostingController(rootView: CongratsView())
 
@@ -52,21 +70,14 @@ class CameraViewController: UIViewController {
         }
 
         congratsView.view.frame = view.layer.bounds
-//        congratsView.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-//        congratsView.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-//        congratsView.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-//        congratsView.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-//        congratsView.view.centerXAnchor.constraint(equalTo: initialView.centerXAnchor).isActive = true
-//        congratsView.view.centerYAnchor.constraint(equalTo: initialView.centerYAnchor).isActive = true
-
 
     }
 
     private var textView: UITextView = {
-        var textView = UITextView(frame: CGRect(x: 20.0, y: 90.0, width: 694, height: 131))
-        textView.contentInsetAdjustmentBehavior = .automatic
+        var textView = UITextView(frame: CGRect(x: 20.0, y: 2000, width: 694, height: 250))
+//        textView.contentInsetAdjustmentBehavior = .
 
-        textView.textAlignment = NSTextAlignment.justified
+        textView.textAlignment = NSTextAlignment.center
         textView.backgroundColor = .clear
 
         // Update UITextView font size and colour
@@ -113,8 +124,7 @@ class CameraViewController: UIViewController {
     private var textViewThree: UITextView = {
         var textViewThree = UITextView()
         textViewThree.contentInsetAdjustmentBehavior = .automatic
-        textViewThree.translatesAutoresizingMaskIntoConstraints = false //You need to call this property so the image is added to your view
-
+        textViewThree.translatesAutoresizingMaskIntoConstraints = false
         textViewThree.textAlignment = NSTextAlignment.justified
         textViewThree.backgroundColor = .clear
 
@@ -124,7 +134,6 @@ class CameraViewController: UIViewController {
         textViewThree.textColor = .white
 
         // Make UITextView Editable
-        //        textViewThree.isEditable = true
         textViewThree.isHidden = false
         textViewThree.text = "Preferably sit with your feet on the floor"
         //        textView.text = Terapy.expand.frases[Terapy.expand.count[0]]
@@ -154,28 +163,23 @@ class CameraViewController: UIViewController {
     }
 
 
-    var index = 0
     func timerEnded(){
         index += 1
         guard index < terapies.count else {
             drawOverlay.removeFromSuperview()
             initialView.removeFromSuperview()
-//            cameraView.removeFromSuperview()
             setupCongratsHC()
             setupCongratsConstraints()
-//            self.presentingViewController?.dismiss(animated: false, completion:nil)
-//            self.dismissParentViewUI()
-            self.inExercise.wrappedValue = false
-//            self.dismiss(animated: true)
 
-//            cameraView.removeFromSuperview()
+            self.inExercise.wrappedValue = false
+
             return
         }
         DispatchQueue.main.async {
             self.textView.text = terapies[self.index].text
 
+
         }
-//        print(terapies[self.index].text)
         TimerMachine.instance.set(totalTime: terapies[self.index].timetoDisplay)
         TimerMachine.instance.start()
 
@@ -205,20 +209,22 @@ class CameraViewController: UIViewController {
         textViewThree.heightAnchor.constraint(equalToConstant: 50).isActive = true
         textViewThree.centerXAnchor.constraint(equalTo: initialView.centerXAnchor).isActive = true
         textViewThree.centerYAnchor.constraint(equalTo: initialView.lastBaselineAnchor, constant: -40).isActive = true
-//        initialView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        //        initialView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
 
     }
 
 
 
     override func viewDidLoad() {
-        TimerMachine.instance.setup(totalTime: 3, onEnd: timerEnded)
+        print(totalDisplay)
         self.view = CameraView(frame: self.view.frame, showOverlay: false)
         initialView.frame = cameraView.layer.bounds
         drawOverlay.frame = cameraView.layer.bounds
         drawOverlay.isHidden = true
 
         initialView.addSubview(numberLabel)
+        setupProgressView()
+
 
 
 
@@ -251,7 +257,7 @@ class CameraViewController: UIViewController {
         initialView.addSubview(hands)
         initialView.addSubview(textViewThree)
         drawOverlay.addSubview(textView)
-        textView.center = drawOverlay.center
+//        textView.center = drawOverlay.center
         drawOverlay.addSubview(numberLabel)
 
         handsConstraints() //This function is outside the viewDidLoad function that controls the constraints
@@ -285,22 +291,16 @@ class CameraViewController: UIViewController {
 
             // Home button on right
         case UIDeviceOrientation.landscapeLeft:
-//            print("TÁ ESQUERDA")
 
-            //            textView.isHidden = false
-//            textView.backgroundColor = .red
             cameraView.previewLayer.connection?.videoOrientation = .portrait
 
         case UIDeviceOrientation.landscapeRight:
-            //            textView.isHidden = false
-//            print("TÁ DIREITA")
+
             textView.center = cameraView.center
             cameraView.previewLayer.connection?.videoOrientation = .portrait
 
         case UIDeviceOrientation.portrait:
             textView.isHidden = true
-//            textViewTwo.text = "Please turn your phone to the right"
-
             cameraView.previewLayer.connection?.videoOrientation = .portrait
 
         default:
@@ -325,9 +325,15 @@ class CameraViewController: UIViewController {
 
 
 
+
+
+
+
     }
 
     override func viewDidAppear(_ animated: Bool){
+        TimerMachine.instance.setup(totalTime: 3, onEnd: timerEnded)
+
 
         super.viewDidAppear(animated)
         do {
@@ -351,15 +357,12 @@ class CameraViewController: UIViewController {
             guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
             self.setNeedsUpdateOfSupportedInterfaceOrientations()
             DispatchQueue.main.asyncAfter(deadline: .now() , execute: {
-                //                self.textViewTwo.center = self.cam
-                self.textView.center = self.cameraView.center
-                //                self.hands.center = self.cameraView.center
+
                 self.cameraView.previewLayer.connection!.videoOrientation = .landscapeLeft
 
                 windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: .landscapeLeft)){
                     error in
-//                    print(error)
-//                    print(windowScene.effectiveGeometry)
+
                 }
             })
 
@@ -535,7 +538,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         for ind in range {
             nodes.append(contentsOf: pointGroups[ind].compactMap {$0?.location})
         }
-//        print(nodes)
+        //        print(nodes)
         return nodes.normalize().sumAll()
     }
     public func captureOutput(_ output: AVCaptureOutput,
@@ -568,6 +571,8 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                                 self.numberLabel.isHidden = true
                                 TimerMachine.instance.start()
                                 self.textView.isHidden = false
+                                self.circleTimer.start()
+
                             }
                             UIView.animate(withDuration: 1, delay: 0.01, options:.curveEaseInOut, animations: {
                                 self.numberLabel.text = String(self.startNumber)
@@ -581,6 +586,9 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                         self.textViewTwo.isHidden = true
                         self.textViewThree.isHidden = true
                         self.drawOverlay.backgroundColor = #colorLiteral(red: 0.4186097383, green: 0.6832208037, blue: 0.6360456347, alpha: 0.7)
+
+
+
                     }
                     handPoseRequest.maximumHandCount = 0
                 }
@@ -675,3 +683,11 @@ extension Array where Element == CGPoint {
     }
 
 }
+extension CGRect {
+    func scaled(to scale:CGFloat)->CGRect {
+        return CGRect(x: self.minX, y: self.minY,
+                      width: self.width * scale,
+                      height:  self.height * scale)
+    }
+}
+

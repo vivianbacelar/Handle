@@ -92,11 +92,11 @@ struct CircleEmoji: ButtonStyle {
 //    @State var showIntro = true
 //
 //    var body: some View{
-//        CircleView(showIntro: $showIntro)
+////        CircleView(showIntro: showIntro)
 //    }
 //}
-
-
+//
+//
 //struct CircleView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        DummyView2()

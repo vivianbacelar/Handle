@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import CodableExtensions
 
 
 class Emoji:ObservableObject{
@@ -26,3 +27,7 @@ class Emoji:ObservableObject{
         self.colorDepois = Color(hex:0xFF45EF)
     }
 }
+
+
+
+

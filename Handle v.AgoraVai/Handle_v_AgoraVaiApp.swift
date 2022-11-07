@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct Handle_v_AgoraVaiApp: App {
+    @Environment(\.scenePhase) var scenePhase
     @StateObject var selectedEmoji = Emoji()
     @StateObject var showIntro = Intro()
     @StateObject var user = User()
@@ -20,20 +21,25 @@ struct Handle_v_AgoraVaiApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                Onboarding()
 
-//                ExerciseView(currentExercise: $currentExercise)
-//                    .onAppear {
-//                        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation") // Forcing the rotation to portrait
-//                        AppDelegate.orientationLock = .portrait // And making sure it stays that way
-//                    }
-//                    .onDisappear {
-//                        AppDelegate.orientationLock = .all // Unlocking the rotation when leaving the view
-//                    }
+                ExerciseView(currentExercise: $currentExercise)
+
             }
             .environmentObject(selectedEmoji)
             .environmentObject(showIntro)
             .environmentObject(user)
+            .onChange(of: scenePhase, perform: { phase in
+                switch phase {
+                case .active:
+                    MoodModel.loadHistory()
+                case .background:
+                    break
+                case .inactive:
+                    MoodModel.saveHistory()
+                @unknown default:
+                    break
+                }
+            })
         }
 
     }
