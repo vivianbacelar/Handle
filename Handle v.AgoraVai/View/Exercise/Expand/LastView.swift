@@ -10,7 +10,8 @@ import SwiftUI
 struct LastView: View {
     @EnvironmentObject var showIntro: Intro
     @EnvironmentObject var selectedEmoji:Emoji
-    @EnvironmentObject var textoDoUsuario:User
+//    @EnvironmentObject var textoDoUsuario:User
+    @AppStorage("name") var textoDoUsuario:String = ""
     @State var tapped:Bool = false
     var showDetail:Bool {showIntro.displayed || tapped}
 

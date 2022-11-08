@@ -14,6 +14,7 @@ class Intro:ObservableObject{
 
     init(){
         self.displayed = false
-        self.displayedIntro = true
+        let (_, secondMood) = MoodModel.getFirstMoods(fromDate: .now)
+        self.displayedIntro = secondMood == nil
     }
 }

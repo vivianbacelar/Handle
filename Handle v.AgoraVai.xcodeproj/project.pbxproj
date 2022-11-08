@@ -17,6 +17,8 @@
 		974BC3E1291993800086CC1A /* CircularTimerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974BC3DE291993800086CC1A /* CircularTimerExtensions.swift */; };
 		974BC3E2291993800086CC1A /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974BC3DF291993800086CC1A /* CircularProgressView.swift */; };
 		974BC3E3291993800086CC1A /* CircularCountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974BC3E0291993800086CC1A /* CircularCountDownView.swift */; };
+		974BC3E5291AEDD50086CC1A /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974BC3E4291AEDD50086CC1A /* Mood.swift */; };
+		974BC3E7291AF6F30086CC1A /* MoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974BC3E6291AF6F30086CC1A /* MoodViewModel.swift */; };
 		974CD7A729104968009F0BA6 /* CircleLastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974CD7A629104968009F0BA6 /* CircleLastView.swift */; };
 		974CD7AC29108692009F0BA6 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974CD7AB29108692009F0BA6 /* VisualEffectView.swift */; };
 		974CD7B029108912009F0BA6 /* Intro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974CD7AF29108912009F0BA6 /* Intro.swift */; };
@@ -141,6 +143,8 @@
 		974BC3DE291993800086CC1A /* CircularTimerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularTimerExtensions.swift; sourceTree = "<group>"; };
 		974BC3DF291993800086CC1A /* CircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		974BC3E0291993800086CC1A /* CircularCountDownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularCountDownView.swift; sourceTree = "<group>"; };
+		974BC3E4291AEDD50086CC1A /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
+		974BC3E6291AF6F30086CC1A /* MoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodViewModel.swift; sourceTree = "<group>"; };
 		974CD7A629104968009F0BA6 /* CircleLastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleLastView.swift; sourceTree = "<group>"; };
 		974CD7AB29108692009F0BA6 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
 		974CD7AF29108912009F0BA6 /* Intro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro.swift; sourceTree = "<group>"; };
@@ -333,6 +337,7 @@
 				A11C60AC290C83C700F43C43 /* Emoji.swift */,
 				974CD7AF29108912009F0BA6 /* Intro.swift */,
 				97440EC82911F5D500A40C90 /* MoodModel.swift */,
+				974BC3E4291AEDD50086CC1A /* Mood.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -341,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				A11C60AE290C83C700F43C43 /* UIKitContent.swift */,
+				974BC3E6291AF6F30086CC1A /* MoodViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -729,6 +735,7 @@
 			files = (
 				974CD7A729104968009F0BA6 /* CircleLastView.swift in Sources */,
 				A11C6107290C83C700F43C43 /* LastView.swift in Sources */,
+				974BC3E5291AEDD50086CC1A /* Mood.swift in Sources */,
 				97440E7B2911D06D00A40C90 /* UIMyProgressView.swift in Sources */,
 				A11C60EA290C83C700F43C43 /* SettingsView.swift in Sources */,
 				A11C60FE290C83C700F43C43 /* Begin.swift in Sources */,
@@ -775,6 +782,7 @@
 				A11C60FF290C83C700F43C43 /* CardDetailView.swift in Sources */,
 				A11C60F4290C83C700F43C43 /* SceneDelegate.swift in Sources */,
 				974BC3E1291993800086CC1A /* CircularTimerExtensions.swift in Sources */,
+				974BC3E7291AF6F30086CC1A /* MoodViewModel.swift in Sources */,
 				A11C60F9290C83C700F43C43 /* About.swift in Sources */,
 				A11C60E8290C83C700F43C43 /* MyButtonStyle.swift in Sources */,
 				A11C60FD290C83C700F43C43 /* Menu.swift in Sources */,

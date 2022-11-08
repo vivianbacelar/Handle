@@ -9,10 +9,11 @@ import SwiftUI
 
 struct Onboarding3: View {
     
-    @EnvironmentObject var textoDoUsuario:User
+    @AppStorage("name") var textoDoUsuario:String = ""
     @State var showHome: Bool = false
     @State private var characterLimit = 10
-    
+    @AppStorage("signed_in") var isUserSignedIn:Bool = false
+
     var body: some View {
         
         ZStack{
@@ -28,31 +29,28 @@ struct Onboarding3: View {
                     .multilineTextAlignment(.center)
                 
                 
-                TextField("Write here...", text: $textoDoUsuario.name)
+                TextField("Write here...", text: $textoDoUsuario)
                     .textFieldStyle(.roundedBorder)
                     .padding(15)
                     .textInputAutocapitalization(.never)
-//                Text("Character count: \(textoDoUsuario.count)")
-//                    .font(.custom("Montserrat-Regular", size: 16))
-//                    .foregroundColor(.clear)
-//                    .padding(.vertical, 10)
                 
-                    .onChange(of: textoDoUsuario.name, perform: { _ in
-                        if textoDoUsuario.name.count > characterLimit {
-                            let limitedText = textoDoUsuario.name.dropLast()
-                            textoDoUsuario.name = String(limitedText)
+                    .onChange(of: textoDoUsuario, perform: { _ in
+                        if textoDoUsuario.count > characterLimit {
+                            let limitedText = textoDoUsuario.dropLast()
+                            textoDoUsuario = String(limitedText)
                                 }
                             })
                 
                 
                 Button {
                     showHome = true
+                    isUserSignedIn = true
                 } label: {
                     Text("Next")
                         .foregroundColor(Color("Fundo bege"))
                         .bold()
                         .fontWeight(.light)
-                }.disabled(textoDoUsuario.name == "")
+                }.disabled(textoDoUsuario == "")
                     .buttonStyle(.plain)
             }
             

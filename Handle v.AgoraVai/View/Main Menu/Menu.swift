@@ -13,6 +13,7 @@ enum Exercise {
 
 struct Menu: View {
     @EnvironmentObject var showIntro: Intro
+    @EnvironmentObject var moodVM: MoodViewModel
 
     @State var tapped = false
     //    @State var showIntro = true // mudar para true depois
@@ -45,13 +46,28 @@ struct Menu: View {
                         ZStack {
                             Color.clear.background(.ultraThinMaterial)
                             if showIntro.displayedIntro{
-                                CircleView()
-                            }
-                            else {
+                                VStack{
+                                    Text("Alright, how's your stress today?")
+                                        .scaledFont(name: "Montserrat-ExtraBold", size: 14)
+                                        .foregroundColor(Color(hex: 0x69696B))
+                                    UIMoodPanel()
+                                        .padding()
+                                    Button {
+                                        let newMood = MoodModel(timeStamp: .now, valor: moodVM.currentMood!.value)
+                                        MoodModel.history.append(newMood)
+                                        MoodModel.saveHistory()
+                                        showIntro.displayedIntro.toggle()
+                                    } label: {
+                                        Text("Ok")
+                                            .foregroundColor(Color("Verde"))
+                                            .bold()
+                                    }
+                                }
+                            } else {
                                 CardDetailView(card: $selectedCard, tapped: $tapped, currentExercise: $currentExercise)
                                     .onTapGesture {
                                         tapped.toggle()
-                                }
+                                    }
                             }
                         }
                     }

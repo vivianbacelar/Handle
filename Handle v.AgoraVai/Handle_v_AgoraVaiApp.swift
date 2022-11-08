@@ -9,12 +9,16 @@ import SwiftUI
 
 @main
 struct Handle_v_AgoraVaiApp: App {
+    @StateObject var moodVM: MoodViewModel = MoodViewModel()
+
     @Environment(\.scenePhase) var scenePhase
     @StateObject var selectedEmoji = Emoji()
     @StateObject var showIntro = Intro()
     @StateObject var user = User()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @State var currentExercise = Exercise.expand
+    @AppStorage("signed_in") var isUserSignedIn:Bool = false
+
     
 
 
@@ -22,12 +26,19 @@ struct Handle_v_AgoraVaiApp: App {
         WindowGroup {
             NavigationView {
 
-                ExerciseView(currentExercise: $currentExercise)
+//                ExerciseView(currentExercise: $currentExercise)
+                if isUserSignedIn{
+                    MainView()
+                }
+                else{
+                    Onboarding()
+                }
 
             }
             .environmentObject(selectedEmoji)
             .environmentObject(showIntro)
             .environmentObject(user)
+            .environmentObject(moodVM)
             .onChange(of: scenePhase, perform: { phase in
                 switch phase {
                 case .active:

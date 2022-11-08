@@ -32,7 +32,7 @@ class CameraViewController: UIViewController {
     lazy var startNumber = 4 // inicio timer
     private let totalDisplay = terapies.compactMap{$0.timetoDisplay}.reduce(0,+)
     var index = 0
-    let circleTimer = CircularCountDownView(frame: CGRect(x: 20, y: 20, width: 60, height: 60), time: 482.0, step: 1.0) // ajustar tempo depois
+    let circleTimer = CircularCountDownView(frame: CGRect(x: 20, y: 20, width: 60, height: 60), time: 484.0, step: 1.0) // ajustar tempo depois
 
 
 
@@ -74,7 +74,7 @@ class CameraViewController: UIViewController {
     }
 
     private var textView: UITextView = {
-        var textView = UITextView(frame: CGRect(x: 20.0, y: 2000, width: 694, height: 250))
+        var textView = UITextView(frame: CGRect(x: 20.0, y: 1000, width: 694, height: 250))
 //        textView.contentInsetAdjustmentBehavior = .
 
         textView.textAlignment = NSTextAlignment.center
@@ -216,7 +216,7 @@ class CameraViewController: UIViewController {
 
 
     override func viewDidLoad() {
-        print(totalDisplay)
+//        print(totalDisplay)
         self.view = CameraView(frame: self.view.frame, showOverlay: false)
         initialView.frame = cameraView.layer.bounds
         drawOverlay.frame = cameraView.layer.bounds
@@ -257,7 +257,7 @@ class CameraViewController: UIViewController {
         initialView.addSubview(hands)
         initialView.addSubview(textViewThree)
         drawOverlay.addSubview(textView)
-//        textView.center = drawOverlay.center
+        textView.center = drawOverlay.center
         drawOverlay.addSubview(numberLabel)
 
         handsConstraints() //This function is outside the viewDidLoad function that controls the constraints

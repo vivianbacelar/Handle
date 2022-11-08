@@ -9,7 +9,8 @@ import SwiftUI
 
 struct CalendarView: View {
     @State private var selectedDate = Date()
-    @EnvironmentObject var selectedEmoji: Emoji
+//    @EnvironmentObject var moodVM: MoodViewModel
+//    @EnvironmentObject var selectedEmoji: Emoji
     
     
     var body: some View {
@@ -77,23 +78,25 @@ struct CalendarView: View {
             .shadow(radius:4)
             .overlay(
                 Group{
-                    VStack{
+                    VStack(spacing: 0){
                         
                         
                         Text("Moodswings")
                             .scaledFont(name: "Montserrat-SemiBold", size: 14)
                             .foregroundColor(Color(hex:0xEFEEEB))
-                            .padding()
+                            .padding([.top, .horizontal])
                         
                         HStack{
+                            let (firstMood, secondMood) = MoodModel.getFirstMoods(fromDate: selectedDate)
                             
                             VStack{
-                                
                                 // ajustar EMOJI com model
-                                Text("\(selectedEmoji.antes)")
+                                Text("\(firstMood?.emoji ?? "?")")
                                     .scaledFont(name: "system", size: 28)
+                                    .padding()
+                                    .shadow(radius:4)
                                     .clipShape(Circle())
-                                    .background(selectedEmoji.colorAntes)
+                                    .background(Color(firstMood?.color ?? .white))
                                     .clipShape(Circle())
                                 
                                 Text("Before")
@@ -106,10 +109,13 @@ struct CalendarView: View {
                             VStack{
                                 
                                 // ajustar EMOJI com model
-                                Text("\(selectedEmoji.depois)")
+                                Text("\(secondMood?.emoji ?? "?")")
                                     .scaledFont(name: "system", size: 28)
+                                    .padding()
+                                    .shadow(radius:4)
                                     .clipShape(Circle())
-                                    .background(selectedEmoji.colorDepois)
+                                    .background(Color(secondMood?.color ?? .white))
+                                    .clipShape(Circle())
                                 
                                 
                                     .clipShape(Circle())
@@ -124,7 +130,7 @@ struct CalendarView: View {
                             
                             
                         }
-                        .padding()
+                        .padding([.bottom, .horizontal])
                         .padding(.horizontal, 60)
                         .frame(alignment: .center)
                         .padding(.bottom, 30)
