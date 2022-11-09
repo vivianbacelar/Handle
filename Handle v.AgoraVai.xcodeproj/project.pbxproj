@@ -14,11 +14,11 @@
 		97440EA72911EC5000A40C90 /* UIMoodPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97440EA62911EC5000A40C90 /* UIMoodPanel.swift */; };
 		97440EC32911F03000A40C90 /* MoodIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97440EC22911F03000A40C90 /* MoodIcon.swift */; };
 		97440EC92911F5D500A40C90 /* MoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97440EC82911F5D500A40C90 /* MoodModel.swift */; };
-		974BC3E1291993800086CC1A /* CircularTimerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974BC3DE291993800086CC1A /* CircularTimerExtensions.swift */; };
-		974BC3E2291993800086CC1A /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974BC3DF291993800086CC1A /* CircularProgressView.swift */; };
-		974BC3E3291993800086CC1A /* CircularCountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974BC3E0291993800086CC1A /* CircularCountDownView.swift */; };
 		974BC3E5291AEDD50086CC1A /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974BC3E4291AEDD50086CC1A /* Mood.swift */; };
 		974BC3E7291AF6F30086CC1A /* MoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974BC3E6291AF6F30086CC1A /* MoodViewModel.swift */; };
+		974BC3F3291C22090086CC1A /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974BC3F0291C22090086CC1A /* CircularProgressView.swift */; };
+		974BC3F4291C22090086CC1A /* CircularTimerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974BC3F2291C22090086CC1A /* CircularTimerExtensions.swift */; };
+		974BC3F5291C22090086CC1A /* CircularCountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974BC3F1291C22090086CC1A /* CircularCountDownView.swift */; };
 		974CD7A729104968009F0BA6 /* CircleLastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974CD7A629104968009F0BA6 /* CircleLastView.swift */; };
 		974CD7AC29108692009F0BA6 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974CD7AB29108692009F0BA6 /* VisualEffectView.swift */; };
 		974CD7B029108912009F0BA6 /* Intro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974CD7AF29108912009F0BA6 /* Intro.swift */; };
@@ -140,11 +140,11 @@
 		97440EA62911EC5000A40C90 /* UIMoodPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIMoodPanel.swift; sourceTree = "<group>"; };
 		97440EC22911F03000A40C90 /* MoodIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodIcon.swift; sourceTree = "<group>"; };
 		97440EC82911F5D500A40C90 /* MoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodModel.swift; sourceTree = "<group>"; };
-		974BC3DE291993800086CC1A /* CircularTimerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularTimerExtensions.swift; sourceTree = "<group>"; };
-		974BC3DF291993800086CC1A /* CircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
-		974BC3E0291993800086CC1A /* CircularCountDownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularCountDownView.swift; sourceTree = "<group>"; };
 		974BC3E4291AEDD50086CC1A /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		974BC3E6291AF6F30086CC1A /* MoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodViewModel.swift; sourceTree = "<group>"; };
+		974BC3F0291C22090086CC1A /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		974BC3F1291C22090086CC1A /* CircularCountDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularCountDownView.swift; sourceTree = "<group>"; };
+		974BC3F2291C22090086CC1A /* CircularTimerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTimerExtensions.swift; sourceTree = "<group>"; };
 		974CD7A629104968009F0BA6 /* CircleLastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleLastView.swift; sourceTree = "<group>"; };
 		974CD7AB29108692009F0BA6 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
 		974CD7AF29108912009F0BA6 /* Intro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro.swift; sourceTree = "<group>"; };
@@ -279,22 +279,21 @@
 		97440EA52911EC2A00A40C90 /* ViewElements */ = {
 			isa = PBXGroup;
 			children = (
-				974BC3DD291993800086CC1A /* CircularTimerComponents */,
+				974BC3EF291C22090086CC1A /* CircularTimerComponents */,
 				97440EA62911EC5000A40C90 /* UIMoodPanel.swift */,
 				97440EC22911F03000A40C90 /* MoodIcon.swift */,
 			);
 			path = ViewElements;
 			sourceTree = "<group>";
 		};
-		974BC3DD291993800086CC1A /* CircularTimerComponents */ = {
+		974BC3EF291C22090086CC1A /* CircularTimerComponents */ = {
 			isa = PBXGroup;
 			children = (
-				974BC3DE291993800086CC1A /* CircularTimerExtensions.swift */,
-				974BC3DF291993800086CC1A /* CircularProgressView.swift */,
-				974BC3E0291993800086CC1A /* CircularCountDownView.swift */,
+				974BC3F2291C22090086CC1A /* CircularTimerExtensions.swift */,
+				974BC3F0291C22090086CC1A /* CircularProgressView.swift */,
+				974BC3F1291C22090086CC1A /* CircularCountDownView.swift */,
 			);
-			name = CircularTimerComponents;
-			path = "../../../../../../../../Library/Mobile Documents/com~apple~CloudDocs/Circular Timer/Circular Timer/CircularTimerComponents";
+			path = CircularTimerComponents;
 			sourceTree = "<group>";
 		};
 		974CD7A829104DDC009F0BA6 /* Grasp */ = {
@@ -739,9 +738,9 @@
 				97440E7B2911D06D00A40C90 /* UIMyProgressView.swift in Sources */,
 				A11C60EA290C83C700F43C43 /* SettingsView.swift in Sources */,
 				A11C60FE290C83C700F43C43 /* Begin.swift in Sources */,
-				974BC3E3291993800086CC1A /* CircularCountDownView.swift in Sources */,
 				A11C60EF290C83C700F43C43 /* CameraViewController.swift in Sources */,
 				A11C6103290C83C700F43C43 /* ExpandTutorial.swift in Sources */,
+				974BC3F3291C22090086CC1A /* CircularProgressView.swift in Sources */,
 				A11C60FB290C83C700F43C43 /* Onboarding3.swift in Sources */,
 				A11C60F7290C83C700F43C43 /* ContentView.swift in Sources */,
 				A11C60F5290C83C700F43C43 /* ViewPicker.swift in Sources */,
@@ -750,6 +749,7 @@
 				A11C60FC290C83C700F43C43 /* CircleView.swift in Sources */,
 				A11C60E4290C83C700F43C43 /* UIKitContent.swift in Sources */,
 				A11C60E1290C83C700F43C43 /* OnboardingInfo.swift in Sources */,
+				974BC3F5291C22090086CC1A /* CircularCountDownView.swift in Sources */,
 				A11C60EE290C83C700F43C43 /* HGR.swift in Sources */,
 				A11C60ED290C83C700F43C43 /* HandHandler.swift in Sources */,
 				974CD7B029108912009F0BA6 /* Intro.swift in Sources */,
@@ -760,6 +760,7 @@
 				A11C60EC290C83C700F43C43 /* CalendarView.swift in Sources */,
 				A11C60F3290C83C700F43C43 /* HandGestureProcessor.swift in Sources */,
 				A11C6109290C83C700F43C43 /* MainView.swift in Sources */,
+				974BC3F4291C22090086CC1A /* CircularTimerExtensions.swift in Sources */,
 				A11C60F1290C83C700F43C43 /* CameraView.swift in Sources */,
 				A11C60DF290C83C700F43C43 /* User.swift in Sources */,
 				A11C6108290C83C700F43C43 /* BackPersonalized.swift in Sources */,
@@ -774,14 +775,12 @@
 				A11C6104290C83C700F43C43 /* ExerciseView.swift in Sources */,
 				A11C6101290C83C700F43C43 /* GraspTutorial.swift in Sources */,
 				A11C60E0290C83C700F43C43 /* Terapy.swift in Sources */,
-				974BC3E2291993800086CC1A /* CircularProgressView.swift in Sources */,
 				A11C60F0290C83C700F43C43 /* AppUtility.swift in Sources */,
 				A11C60E9290C83C700F43C43 /* RemoveLine.swift in Sources */,
 				A11C60DE290C83C700F43C43 /* Card.swift in Sources */,
 				A11C60E6290C83C700F43C43 /* HideTabBar.swift in Sources */,
 				A11C60FF290C83C700F43C43 /* CardDetailView.swift in Sources */,
 				A11C60F4290C83C700F43C43 /* SceneDelegate.swift in Sources */,
-				974BC3E1291993800086CC1A /* CircularTimerExtensions.swift in Sources */,
 				974BC3E7291AF6F30086CC1A /* MoodViewModel.swift in Sources */,
 				A11C60F9290C83C700F43C43 /* About.swift in Sources */,
 				A11C60E8290C83C700F43C43 /* MyButtonStyle.swift in Sources */,
@@ -932,6 +931,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -968,6 +968,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
