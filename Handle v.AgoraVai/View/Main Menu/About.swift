@@ -77,7 +77,7 @@ struct About: View {
                                 
                                 HStack (alignment: .top){
                               
-                                Text("The Formative Psychology Center was founded in 1970 by Stanley Keleman, an psychologist. This branch of psychology that studies ways on how the body affects our mental state. And specifically, how we can voluntarily destress by changing our body posture and behaviour. ")
+                                Text("The Formative Psychology Center was founded in 1970 by Stanley Keleman. This branch of psychology that studies ways on how the body affects our mental state. And specifically, how we can voluntarily destress by changing our body posture and behaviour. ")
                                     .font(.custom("Inter-Thin-BETA", size: 14))
                                     .foregroundColor(.gray)
                                     .multilineTextAlignment(.leading)

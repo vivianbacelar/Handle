@@ -17,28 +17,23 @@ struct OnboardingInfo {
         OnboardingInfo(imageName: "ImageOnboarding1",
                        title: "So you’re stressed",
                        synopsis: "Bummer. We've all been there, haven't we? If you deal any school or work on a daily basis, congrats! It's most likely that you'll experience the wonders of being stressed. So Handle is here to help.",
-                       color: "Verde",
-                       progressImage: "Progress1"),
+                       color: "Verde"),
         OnboardingInfo(imageName: "ImageOnboarding2",
                         title: "Know what to do",
                         synopsis: "Handle offers de-stressing hand exercises that once learned, can be done wherever you want and need. Our main priority? You have the tools to be able to tackle your stress with more ease. ",
-                        color: "Turquesa",
-                        progressImage: "Progress2"),
+                        color: "Turquesa"),
         OnboardingInfo(imageName: "ImageOnboarding3",
                         title: "Used by professionals",
                         synopsis: "The exercises found here are based on the Formative Psychology Center, that studies ways that body - and mainly hand - posture direclty affects our emotional state. All exercises are professionally tested and frequently used by psychologists in the field.",
-                        color: "Marinho",
-                        progressImage: "Progress3"),
+                        color: "Marinho"),
         OnboardingInfo(imageName: "ImageOnboarding4",
                         title: "Keep Track",
                         synopsis: "Along with the exercises, Handle offers you Health 4.0 features, optional personalized notifications and a mood calendar, to help you identify and map out your peaks of stress.",
-                        color: "Amarelo",
-                        progressImage: "Progress4"),
+                        color: "Amarelo"),
         OnboardingInfo(imageName: "HandleOnboarding",
                         title: "Welcome",
                         synopsis: "We don't do ”conceal, don't feel” here. Stress is very real, and there's no need to push it aside. In fact, learning how and when your stress comes prevents you from getting overwhelmed when it happens. And that power is always in your hands ;)",
-                        color: "Verde",
-                        progressImage: "Progress5")
+                        color: "Verde")
         
     ]
     
@@ -48,5 +43,4 @@ struct OnboardingInfo {
     let title: String
     let synopsis: String
     let color: String
-    let progressImage: String
 }

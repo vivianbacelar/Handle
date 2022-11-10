@@ -10,7 +10,7 @@ import SwiftUI
 struct Onboarding3: View {
     
     @AppStorage("name") var textoDoUsuario:String = ""
-    @State var showHome: Bool = false
+    @State var showDisclaimer: Bool = false
     @State private var characterLimit = 10
     @AppStorage("signed_in") var isUserSignedIn:Bool = false
 
@@ -43,7 +43,7 @@ struct Onboarding3: View {
                 
                 
                 Button {
-                    showHome = true
+                    showDisclaimer = true
                     isUserSignedIn = true
                 } label: {
                     Text("Next")
@@ -56,9 +56,9 @@ struct Onboarding3: View {
             
         }
         .navigationBarHidden(true)
-        .fullScreenCover(isPresented: $showHome) {
+        .fullScreenCover(isPresented: $showDisclaimer) {
    
-            MainView()
+            Disclaimer()
         }
     }
     

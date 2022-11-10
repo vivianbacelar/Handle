@@ -22,25 +22,26 @@ struct SettingsView: View {
                 Color("Fundo bege")
                     .ignoresSafeArea()
                 
+                    
                 Text("Settings")
                     .scaledFont(name: "Montserrat-Regular", size: 28)
                     .foregroundColor(Color("Marinho"))
                     .multilineTextAlignment(.trailing)
-                    .padding(.top, -355)
+                    .padding(.top, -340)
                     .padding(.leading, -180)
                 
                 
                 Text("Handle your stress the best way you can")
                     .scaledFont(name: "Montserrat-Regular", size: 14)
                     .foregroundColor(Color("Marinho"))
-                    .padding(.top, -320)
+                    .padding(.top, -305)
                     .padding(.leading, -75)
                 
                 
                 Text("Language")
                     .scaledFont(name: "Montserrat-Regular", size: 18)
                     .foregroundColor(Color("Marinho"))
-                    .padding(.top,-280)
+                    .padding(.top,-230)
                     .padding(.leading, -175)
                 
                 
@@ -57,71 +58,42 @@ struct SettingsView: View {
                     .pickerStyle(.segmented)
                     .background(Color("Fundo bege"))
                     .frame(width: 300)
-                    .padding(.top,-140)
+                    .padding(.top,-180)
                     
                     
                     
-                    
-                    
-                    HStack{
-                        
-                        if voiceGuide == true{
-
-                            
-                        }
-                        Toggle(isOn:$voiceGuide){
-                            Text("Voice-Guided Activities")
-                                .scaledFont(name: "Montserrat-Regular", size: 18)
-                                .foregroundColor(Color("Marinho"))
-                            
-                            
-                        }
-                        
-                    }.padding()
-                    
-
-                    
-                    HStack{
-                        Toggle(isOn:$headphoneAdaptations){
-                            Text("Headphone Adaptations")
-                                .scaledFont(name: "Montserrat-Regular", size: 18)
-                                .foregroundColor(Color("Marinho"))
-                            
-                            
-                        }
-                        if headphoneAdaptations == true {
-                            
-                        }
-                        
-                        
-                    }.padding()
-                    
-                    
-                    HStack{
-                        if backgroundSounds == true {
-                            
-                        }
-                        
-                        Toggle(isOn:$backgroundSounds){
-                            Text("Background Sounds")
-                                .scaledFont(name: "Montserrat-Regular", size: 18)
-                                .foregroundColor(Color("Marinho"))
-                            
-                            
-                            
-                        }
-                    }.padding()
-
-                    #if DEBUG
-                    Button {
-                        MoodModel.history = []
-                        MoodModel.saveHistory()
-                    } label: {
-                        Text("Limpar histórico")
-                    }
-                    #endif
+//                    HStack{
+//
+//                        if voiceGuide == true{
+//
+//
+//                        }
+//                        Toggle(isOn:$voiceGuide){
+//                            Text("Voice-Guided Activities")
+//                                .scaledFont(name: "Montserrat-Regular", size: 18)
+//                                .foregroundColor(Color("Marinho"))
+//
+//
+//
+//                        }
+//
+//                    }.padding(.top,-100)
+                       
                     
                 }
+                
+                
+                
+                
+                
+                
+                
+               
+                
+                
+                
+                
+                
                 
 
             }
