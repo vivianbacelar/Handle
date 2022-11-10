@@ -57,7 +57,6 @@
 		A11C60FD290C83C700F43C43 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C60CF290C83C700F43C43 /* Menu.swift */; };
 		A11C60FE290C83C700F43C43 /* Begin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C60D0290C83C700F43C43 /* Begin.swift */; };
 		A11C60FF290C83C700F43C43 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C60D1290C83C700F43C43 /* CardDetailView.swift */; };
-		A11C6100290C83C700F43C43 /* Onboarding2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C60D2290C83C700F43C43 /* Onboarding2.swift */; };
 		A11C6101290C83C700F43C43 /* GraspTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C60D4290C83C700F43C43 /* GraspTutorial.swift */; };
 		A11C6102290C83C700F43C43 /* CongratsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C60D5290C83C700F43C43 /* CongratsView.swift */; };
 		A11C6103290C83C700F43C43 /* ExpandTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C60D6290C83C700F43C43 /* ExpandTutorial.swift */; };
@@ -67,6 +66,9 @@
 		A11C6107290C83C700F43C43 /* LastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C60DA290C83C700F43C43 /* LastView.swift */; };
 		A11C6108290C83C700F43C43 /* BackPersonalized.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C60DB290C83C700F43C43 /* BackPersonalized.swift */; };
 		A11C6109290C83C700F43C43 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C60DC290C83C700F43C43 /* MainView.swift */; };
+		A1398972291C2AF90006D053 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1398974291C2AF90006D053 /* Localizable.strings */; };
+		A1398977291C2FBE0006D053 /* Disclaimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398976291C2FBE0006D053 /* Disclaimer.swift */; };
+		A1398979291C3A220006D053 /* OnboardingProvisorio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398978291C3A220006D053 /* OnboardingProvisorio.swift */; };
 		A16CFEC3290C44780052602F /* Handle_v_AgoraVaiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CFEC2290C44780052602F /* Handle_v_AgoraVaiApp.swift */; };
 		A16CFEC7290C44780052602F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A16CFEC6290C44780052602F /* Assets.xcassets */; };
 		A16CFECA290C44780052602F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A16CFEC9290C44780052602F /* Preview Assets.xcassets */; };
@@ -183,7 +185,6 @@
 		A11C60CF290C83C700F43C43 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		A11C60D0290C83C700F43C43 /* Begin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Begin.swift; sourceTree = "<group>"; };
 		A11C60D1290C83C700F43C43 /* CardDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
-		A11C60D2290C83C700F43C43 /* Onboarding2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Onboarding2.swift; sourceTree = "<group>"; };
 		A11C60D4290C83C700F43C43 /* GraspTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraspTutorial.swift; sourceTree = "<group>"; };
 		A11C60D5290C83C700F43C43 /* CongratsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CongratsView.swift; sourceTree = "<group>"; };
 		A11C60D6290C83C700F43C43 /* ExpandTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandTutorial.swift; sourceTree = "<group>"; };
@@ -193,6 +194,10 @@
 		A11C60DA290C83C700F43C43 /* LastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastView.swift; sourceTree = "<group>"; };
 		A11C60DB290C83C700F43C43 /* BackPersonalized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackPersonalized.swift; sourceTree = "<group>"; };
 		A11C60DC290C83C700F43C43 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		A1398973291C2AF90006D053 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A1398975291C2B000006D053 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		A1398976291C2FBE0006D053 /* Disclaimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disclaimer.swift; sourceTree = "<group>"; };
+		A1398978291C3A220006D053 /* OnboardingProvisorio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProvisorio.swift; sourceTree = "<group>"; };
 		A16CFEBF290C44780052602F /* Handle v.AgoraVai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Handle v.AgoraVai.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A16CFEC2290C44780052602F /* Handle_v_AgoraVaiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handle_v_AgoraVaiApp.swift; sourceTree = "<group>"; };
 		A16CFEC6290C44780052602F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -437,12 +442,13 @@
 				A11C60CB290C83C700F43C43 /* About.swift */,
 				A11C60CC290C83C700F43C43 /* Onboarding.swift */,
 				A11C60CD290C83C700F43C43 /* Onboarding3.swift */,
+				A1398976291C2FBE0006D053 /* Disclaimer.swift */,
 				A11C60CE290C83C700F43C43 /* CircleView.swift */,
 				A11C60CF290C83C700F43C43 /* Menu.swift */,
 				A11C60D0290C83C700F43C43 /* Begin.swift */,
 				A11C60D1290C83C700F43C43 /* CardDetailView.swift */,
-				A11C60D2290C83C700F43C43 /* Onboarding2.swift */,
 				974CD7A629104968009F0BA6 /* CircleLastView.swift */,
+				A1398978291C3A220006D053 /* OnboardingProvisorio.swift */,
 			);
 			path = "Main Menu";
 			sourceTree = "<group>";
@@ -481,6 +487,7 @@
 				A16CFEC2290C44780052602F /* Handle_v_AgoraVaiApp.swift */,
 				A16CFEF7290C44C50052602F /* Fonts */,
 				A16CFEC6290C44780052602F /* Assets.xcassets */,
+				A1398974291C2AF90006D053 /* Localizable.strings */,
 				A11C60A5290C83C700F43C43 /* Model */,
 				A11C60B5290C83C700F43C43 /* View */,
 				A11C60AF290C83C700F43C43 /* ViewExtension */,
@@ -638,6 +645,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = A16CFEB6290C44780052602F;
 			packageReferences = (
@@ -693,6 +701,7 @@
 				A16CFF87290C44C50052602F /* MontserratAlternates-Black.otf in Resources */,
 				A16CFF9F290C44C50052602F /* Montserrat-ExtraLightItalic.otf in Resources */,
 				A16CFF9B290C44C50052602F /* Montserrat-Regular.otf in Resources */,
+				A1398972291C2AF90006D053 /* Localizable.strings in Resources */,
 				A16CFF6C290C44C50052602F /* Inter-UI-BlackItalic.ttf in Resources */,
 				A16CFF7E290C44C50052602F /* manrope-bold.otf in Resources */,
 				A16CFF6B290C44C50052602F /* Inter-Thin-BETA.ttf in Resources */,
@@ -736,6 +745,7 @@
 				A11C6107290C83C700F43C43 /* LastView.swift in Sources */,
 				974BC3E5291AEDD50086CC1A /* Mood.swift in Sources */,
 				97440E7B2911D06D00A40C90 /* UIMyProgressView.swift in Sources */,
+				A1398979291C3A220006D053 /* OnboardingProvisorio.swift in Sources */,
 				A11C60EA290C83C700F43C43 /* SettingsView.swift in Sources */,
 				A11C60FE290C83C700F43C43 /* Begin.swift in Sources */,
 				A11C60EF290C83C700F43C43 /* CameraViewController.swift in Sources */,
@@ -745,7 +755,6 @@
 				A11C60F7290C83C700F43C43 /* ContentView.swift in Sources */,
 				A11C60F5290C83C700F43C43 /* ViewPicker.swift in Sources */,
 				A11C60F6290C83C700F43C43 /* ImagePicker.swift in Sources */,
-				A11C6100290C83C700F43C43 /* Onboarding2.swift in Sources */,
 				A11C60FC290C83C700F43C43 /* CircleView.swift in Sources */,
 				A11C60E4290C83C700F43C43 /* UIKitContent.swift in Sources */,
 				A11C60E1290C83C700F43C43 /* OnboardingInfo.swift in Sources */,
@@ -784,6 +793,7 @@
 				974BC3E7291AF6F30086CC1A /* MoodViewModel.swift in Sources */,
 				A11C60F9290C83C700F43C43 /* About.swift in Sources */,
 				A11C60E8290C83C700F43C43 /* MyButtonStyle.swift in Sources */,
+				A1398977291C2FBE0006D053 /* Disclaimer.swift in Sources */,
 				A11C60FD290C83C700F43C43 /* Menu.swift in Sources */,
 				A11C60DD290C83C700F43C43 /* TimerMachine.swift in Sources */,
 				A11C60F2290C83C700F43C43 /* AppDelegate.swift in Sources */,
@@ -795,6 +805,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A1398974291C2AF90006D053 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1398973291C2AF90006D053 /* en */,
+				A1398975291C2B000006D053 /* pt-BR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A16CFECB290C44780052602F /* Debug */ = {

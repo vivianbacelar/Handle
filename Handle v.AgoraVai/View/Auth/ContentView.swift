@@ -37,12 +37,6 @@ struct ContentView: View {
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-////    static var previews: some View {
-////        ContentView()
-////    }
-////}
-
 struct SignInView: View {
     
     @Environment(\.colorScheme) var colorScheme  // cor do botão
@@ -95,3 +89,8 @@ struct SignInView: View {
     }
 }
 
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
