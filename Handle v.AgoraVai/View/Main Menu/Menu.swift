@@ -79,9 +79,9 @@ struct Menu: View {
                                         .padding()
                                     Button {
                                         let newMood = MoodModel(timeStamp: .now, valor: moodVM.currentMood!.value, quote: "")
-//                                        MoodModel.history.append(newMood)
+                                        MoodModel.history.append(newMood)
                                         MoodModel.history = [newMood]
-//                                        MoodModel.saveHistory()
+                                        MoodModel.saveHistory()
                                         showIntro.displayedIntro.toggle()
                                     } label: {
                                         Text("Ok")

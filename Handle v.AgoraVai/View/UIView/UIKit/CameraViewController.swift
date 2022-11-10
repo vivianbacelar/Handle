@@ -37,6 +37,7 @@ class CameraViewController: UIViewController {
 
 
 
+
     fileprivate func setupProgressView() {
         circleTimer.ring.backgroundBarColor = .lightGray
         circleTimer.ring.foregroundBarColor = .white
@@ -165,7 +166,7 @@ class CameraViewController: UIViewController {
 
     func timerEnded(){
         index += 1
-        guard index < terapies.count-50 else {
+        guard index < terapies.count else {
             drawOverlay.removeFromSuperview()
             initialView.removeFromSuperview()
             setupCongratsHC()
@@ -224,6 +225,8 @@ class CameraViewController: UIViewController {
 
         initialView.addSubview(numberLabel)
         setupProgressView()
+        UIApplication.shared.isIdleTimerDisabled = true
+
 
 
 

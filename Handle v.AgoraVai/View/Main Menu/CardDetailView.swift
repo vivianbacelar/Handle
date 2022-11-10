@@ -23,25 +23,26 @@ struct CardDetailView: View {
     var imageTutorial: String {card.imageTutorial}
     var activity: String {card.activity}
     var isUnlocked: Bool {card.isUnlocked}
-    
-    
+    @State var lastDismiss: Bool = false
     @State var showExerciseView: Bool = false
     @Binding var currentExercise: Exercise
     
     var body: some View {
         ZStack {
             VStack {
-                Button {
-                    tapped.toggle()
-                } label: {
-                    HStack {
+                HStack{
+                    Button {
+                        tapped.toggle()
+                        print("dsgknjdsjgkn")
+                    } label: {
                         Image(systemName: "chevron.backward")
                             .foregroundColor(Color("Verde"))
                             .font(.system(size: 25))
                             .padding(.leading)
-                            .padding (.top, -30)
-                        Spacer()
+//                            .padding (.top, -30)
+
                     }
+                    Spacer()
                 }
                 Spacer()
             }
@@ -58,17 +59,13 @@ struct CardDetailView: View {
                             Text(minutes)
                                 .scaledFont(name: "Montserrat-SemiBold", size: 16)
                                 .foregroundColor(.white)
-                            
-                            
+
                             
                             Text(synopsis)
                                 .scaledFont(name: "Montserrat-Medium", size: 16)
                                 .foregroundColor(.white)
-                            
                                 .padding(2)
-                            
-                            
-                            
+
                             Text(complement)
                                 .scaledFont(name: "Montserrat-Light", size: 12)
                                 .multilineTextAlignment(.center)
@@ -125,9 +122,12 @@ struct CardDetailView: View {
                         }
                         .showTabBar()
                         .disabled(!isUnlocked)
-                )}
+                )
+
         }
-        
+
+    }
+
 }
 
 
@@ -140,10 +140,10 @@ struct DummyView: View {
     }
 }
 
-//struct CardView_Previews: PreviewProvider {
-//
-//    static var previews: some View {
-//        DummyView()
-//    }
-//}
-//
+struct CardView_Previews: PreviewProvider {
+
+    static var previews: some View {
+        DummyView()
+    }
+}
+
