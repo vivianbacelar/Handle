@@ -16,8 +16,10 @@ struct Menu: View {
     @EnvironmentObject var moodVM: MoodViewModel
 
     @State var tapped = false
+    @State var tappedLocked = false
     //    @State var showIntro = true // mudar para true depois
     var showDetail:Bool {tapped || showIntro.displayedIntro}
+
     @State var selectedCard = Card.placeholder
     @State var currentExercise = Exercise.none
     var actualMood = MoodModel.getFirstMoods(fromDate: .now)
@@ -113,8 +115,10 @@ struct Menu: View {
         GeometryReader { geometry in
             HStack(spacing:20) {
                 VStack(spacing:20){
-                    CardView(geometry: geometry, card:Card.all[0], tapped: $tapped, selectedCard: $selectedCard)
-                    CardView(geometry: geometry, card:Card.all[1], tapped: $tapped, selectedCard: $selectedCard)
+                    CardView(geometry: geometry, card:Card.all[0], tapped: $tappedLocked, selectedCard: $selectedCard)
+                        .opacity(0.5)
+                    CardView(geometry: geometry, card:Card.all[1], tapped: $tappedLocked, selectedCard: $selectedCard)
+                        .opacity(0.5)
                 }
                 .padding(.bottom)
                 CardView(geometry: geometry, card:Card.all[2], tapped: $tapped, selectedCard: $selectedCard)

@@ -159,7 +159,7 @@ struct CalendarView: View {
                             .foregroundColor(Color(hex:0xEFEEEB))
                             .frame(height: 40)
                             .overlay(
-                                Text("\(MoodModel.getDayQuote(fromDate: selectedDate) ?? "Write here...")")
+                                Text("\(MoodModel.getDayQuote(fromDate: selectedDate) ?? "None :(")")
                                     .font(.custom("Montserrat-Regular", size: 10))
                                     .foregroundColor(Color(hex: 0x6c8c7a))
                                 

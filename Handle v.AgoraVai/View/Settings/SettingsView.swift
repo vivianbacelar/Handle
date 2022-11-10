@@ -60,7 +60,14 @@ struct SettingsView: View {
                     .frame(width: 300)
                     .padding(.top,-180)
                     
-                    
+                #if DEBUG
+                Button {
+                    MoodModel.history = []
+                    MoodModel.saveHistory()
+                } label: {
+                    Text("Limpar histórico")
+                }
+                #endif
                     
 //                    HStack{
 //
