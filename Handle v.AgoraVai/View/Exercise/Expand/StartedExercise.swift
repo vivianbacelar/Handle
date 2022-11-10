@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StartedExercise: View {
-    @State var inExercise = true
+    @State var inExercise = false
 
     var body: some View {
 

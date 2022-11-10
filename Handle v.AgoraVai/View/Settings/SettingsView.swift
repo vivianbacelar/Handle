@@ -66,7 +66,7 @@ struct SettingsView: View {
                     HStack{
                         
                         if voiceGuide == true{
-                
+
                             
                         }
                         Toggle(isOn:$voiceGuide){
@@ -79,7 +79,7 @@ struct SettingsView: View {
                         
                     }.padding()
                     
-               
+
                     
                     HStack{
                         Toggle(isOn:$headphoneAdaptations){
@@ -111,21 +111,17 @@ struct SettingsView: View {
                             
                         }
                     }.padding()
+
+                    #if DEBUG
+                    Button {
+                        MoodModel.history = []
+                        MoodModel.saveHistory()
+                    } label: {
+                        Text("Limpar histórico")
+                    }
+                    #endif
                     
                 }
-                
-                
-                
-                
-                
-                
-                
-               
-                
-                
-                
-                
-                
                 
 
             }

@@ -20,8 +20,9 @@ struct UIMoodPanel:View {
     }
 
     static func onSelect(_ selected:Int) {
-        let newMood = MoodModel(valor: selected)
+        let newMood = MoodModel(valor: selected, quote: "")
         MoodModel.history.append(newMood)
+//        MoodModel.quoteHistory.append(newMood)
     }
 
 }

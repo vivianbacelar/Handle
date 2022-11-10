@@ -10,8 +10,22 @@ import CodableExtensions
 
 struct MoodModel:Codable {
     static var history:[MoodModel] = []
+//    static var quoteHistory:[MoodModel] = []
     var timeStamp:Date = Date()
     var valor:Int
+    var quote:String
+
+    static func getDayQuote(fromDate date: Date) -> String? {
+        Self.loadHistory()
+        let moodsOfToday = history.filter { mood in
+            Calendar.current.isDate(mood.timeStamp, inSameDayAs: date)
+
+        }
+        if moodsOfToday.count >= 2 {
+            return moodsOfToday[1].quote
+        }
+        return nil
+    }
 
     static func getFirstMoods(fromDate date: Date) -> (first: Mood?, second: Mood?) {
         Self.loadHistory()

@@ -20,10 +20,14 @@ struct Menu: View {
     var showDetail:Bool {tapped || showIntro.displayedIntro}
     @State var selectedCard = Card.placeholder
     @State var currentExercise = Exercise.none
+    var actualMood = MoodModel.getFirstMoods(fromDate: .now)
+
+
     
     var textoDoUsuario:String
     
     var body: some View {
+
         NavigationView{
             switch currentExercise {
             case .expand:
@@ -35,7 +39,26 @@ struct Menu: View {
             case .none:
                 ZStack{
                     ScrollView{
-                        welcome
+                        HStack{
+                            welcome
+
+                                 VStack{
+                                     Text("\(actualMood.first?.emoji ?? "?")")
+                                             .scaledFont(name: "system", size: 28)
+                                             .padding()
+                                             .shadow(radius:4)
+                                             .clipShape(Circle())
+                                             .background(Color(actualMood.first?.color ?? .white))
+                                             .clipShape(Circle())
+
+                                     Text("status")
+                                         .scaledFont(name: "Montserrat-Regular", size: 14)
+                                         .foregroundColor(Color(hex: 0x245150))
+                                 }
+                                 .padding()
+                            }
+
+
                         cards
                     }
                     .showTabBar()
@@ -53,9 +76,10 @@ struct Menu: View {
                                     UIMoodPanel()
                                         .padding()
                                     Button {
-                                        let newMood = MoodModel(timeStamp: .now, valor: moodVM.currentMood!.value)
-                                        MoodModel.history.append(newMood)
-                                        MoodModel.saveHistory()
+                                        let newMood = MoodModel(timeStamp: .now, valor: moodVM.currentMood!.value, quote: "")
+//                                        MoodModel.history.append(newMood)
+                                        MoodModel.history = [newMood]
+//                                        MoodModel.saveHistory()
                                         showIntro.displayedIntro.toggle()
                                     } label: {
                                         Text("Ok")
@@ -82,6 +106,8 @@ struct Menu: View {
             AppDelegate.orientationLock = .all // Unlocking the rotation when leaving the view
         }
     }
+
+    
     
     var cards: some View {
         GeometryReader { geometry in
@@ -122,6 +148,7 @@ struct Menu: View {
                             
                             Text("Welcome, \(textoDoUsuario)!")
                                 .scaledFont(name: "Montserrat-Regular", size: 14)
+                                .foregroundColor(Color(hex: 0x245150))
                                 .padding(.leading, 60)
                                 .padding(.top,110)
                                 .frame(width:220)
@@ -130,17 +157,31 @@ struct Menu: View {
                     )
                 
                 Spacer()
+
                 
             }
             
         }
     }
+
+
 }
 
 
-//
-//struct Menu_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Menu()
-//    }
-//}
+struct DummyViewMenu: View{
+
+
+    var body: some View{
+        Menu(textoDoUsuario: "")
+
+    }
+}
+
+struct Menu_Previews: PreviewProvider {
+
+    static var previews: some View {
+        DummyViewMenu()
+            .environmentObject(Intro())
+            .environmentObject(MoodViewModel())
+    }
+}

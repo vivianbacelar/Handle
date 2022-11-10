@@ -32,7 +32,7 @@ struct Onboarding3: View {
                 TextField("Write here...", text: $textoDoUsuario)
                     .textFieldStyle(.roundedBorder)
                     .padding(15)
-                    .textInputAutocapitalization(.never)
+                    .textInputAutocapitalization(.sentences)
                 
                     .onChange(of: textoDoUsuario, perform: { _ in
                         if textoDoUsuario.count > characterLimit {

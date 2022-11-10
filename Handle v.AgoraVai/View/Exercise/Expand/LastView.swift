@@ -10,11 +10,13 @@ import SwiftUI
 struct LastView: View {
     @EnvironmentObject var showIntro: Intro
     @EnvironmentObject var selectedEmoji:Emoji
-//    @EnvironmentObject var textoDoUsuario:User
+    @EnvironmentObject var moodVM: MoodViewModel
     @AppStorage("name") var textoDoUsuario:String = ""
+
     @State var tapped:Bool = false
     var showDetail:Bool {showIntro.displayed || tapped}
-
+    @State var quoteOfTheDay = ""
+    
     @State var nums:[Int] = [1,2,3,4,5]
     @State var colors = [#colorLiteral(red: 0.5599847436, green: 0.8115807176, blue: 0.866892755, alpha: 1), #colorLiteral(red: 0.731630981, green: 0.8238679767, blue: 0.539796114, alpha: 1), #colorLiteral(red: 0.9286388159, green: 0.8184836507, blue: 0.5909100771, alpha: 1), #colorLiteral(red: 0.931117475, green: 0.6745183468, blue: 0.592323482, alpha: 1), #colorLiteral(red: 0.9282506108, green: 0.5942555666, blue: 0.5907897353, alpha: 1)].map{Color($0)}
     @State var emojis: [String] = ["😁","😌", "😐", "😤","😡"]
@@ -28,7 +30,7 @@ struct LastView: View {
         Image("ImageHandle")
                 .resizable()
                 .scaledToFill()
-                .blur(radius: 10)
+                .blur(radius: 50)
 
         escolhaFinal
 
@@ -48,58 +50,50 @@ struct LastView: View {
 
 
     var escolhaFinal: some View {
-        VStack{
-            Text("Alright, how's your stress now?")
-                .scaledFont(name: "Montserrat-ExtraBold", size: 14)
-                .foregroundColor(Color(hex: 0x245150))
-            HStack {
-                ForEach(colors.indices, id: \.self) { rating in
-                    VStack{
+            VStack(spacing: 40){
+                VStack{
+                    Text("Alright, how's your stress now?")
+                        .scaledFont(name: "Montserrat-SemiBold", size: 14)
+                        .foregroundColor(Color(hex: 0x69696B))
+                    UIMoodPanel()
+                        .padding()
+                }
 
-                        Button(action: {
-//                            print("Pressed")
-                            selectedEmoji.depois = emojis[rating]
-                            chosenEmoji = emojis[rating]
-                            selectedEmoji.colorDepois = colors[rating]
-                        }
-                        ){
-                            Text("\(emojis[rating])")
-                                .scaledFont(name: "Montserrat-SemiBold", size: 28)
-                                .clipShape(Circle())
-
-                        }
-                        .buttonStyle(CircleEmoji(color: colors[rating]))
-
-                        .shadow(radius:4)
-
-                        ZStack {
-                            Text("\(nums[rating])")
-                                .opacity(emojis[rating] != chosenEmoji ? 1 : 0)
-                            Image(systemName: "checkmark")
-                                .opacity(emojis[rating] != chosenEmoji ? 0 : 1)
-                        }
-
-
+                VStack{
+                    Text("Quote of the day:")
+                        .scaledFont(name: "Montserrat-SemiBold", size: 14)
+                        .foregroundColor(Color(hex: 0x69696B))
+                    TextField("Write Here...", text: $quoteOfTheDay)
+                        .textFieldStyle(.roundedBorder)
+                        .font(.custom("Montserrat-Medium", fixedSize: 14))
+                    Button {
+                        let newMood = MoodModel(timeStamp: .now, valor: moodVM.currentMood!.value, quote: quoteOfTheDay)
+                        MoodModel.history.append(newMood)
+//                        MoodModel.history = [newMood]
+                        MoodModel.saveHistory()
+                        showIntro.displayed.toggle()
+                    } label: {
+                        HStack{
+                            Text("Ok")
+                                .scaledFont(name: "Montserrat-Medium", size: 14)
+                            Text(">")
+                                .scaledFont(name: "Montserrat-Medium", size: 26)
+                        }.foregroundColor(Color(hex: 0x245150))
                     }
                 }
-            }
             .padding()
-            Button {
-                showIntro.displayed.toggle()
-            } label: {
-                HStack{
-                    Text("Ok")
-                        .scaledFont(name: "Montserrat-Medium", size: 14)
-                    Text(">")
-                        .scaledFont(name: "Montserrat-Medium", size: 26)
-                }.foregroundColor(Color(hex: 0x245150))
-            }
-
-
             }
         }
     }
 
 
+struct LastView_Previews: PreviewProvider {
+    static var previews: some View {
+        LastView()
+            .environmentObject(Intro())
+            .environmentObject(Emoji())
+            .environmentObject(MoodViewModel())
+    }
+}
 
 

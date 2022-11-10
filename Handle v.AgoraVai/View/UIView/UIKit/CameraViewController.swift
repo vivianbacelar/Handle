@@ -165,7 +165,7 @@ class CameraViewController: UIViewController {
 
     func timerEnded(){
         index += 1
-        guard index < terapies.count else {
+        guard index < terapies.count-50 else {
             drawOverlay.removeFromSuperview()
             initialView.removeFromSuperview()
             setupCongratsHC()

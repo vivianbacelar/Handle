@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CalendarView: View {
     @State private var selectedDate = Date()
+    @EnvironmentObject var showIntro: Intro
 //    @EnvironmentObject var moodVM: MoodViewModel
 //    @EnvironmentObject var selectedEmoji: Emoji
     
@@ -16,7 +17,7 @@ struct CalendarView: View {
     var body: some View {
         ZStack{
             
-            VStack{
+            VStack(spacing: 0){
                 
                 Spacer()
                 Spacer()
@@ -25,23 +26,25 @@ struct CalendarView: View {
                     .foregroundColor(Color("Marinho"))
                     .padding(.trailing, 178)
                 
-                Text("Punctual as usual. But is your calmzone")
+                Text("Punctual as usual. But so is your calmzone")
                     .scaledFont(name: "Montserrat-Regular", size: 14)
                     .foregroundColor(Color("Marinho"))
-                    .padding(.trailing, 75)
-                
-                
-                VStack{
+                    .padding(.trailing, 60)
+
+
+                VStack(alignment: .center){
                     
                     calendar
                     
                     progress
                     
                     
-                }.frame(maxHeight: .infinity)
+                }
+                .frame(maxHeight: .infinity)
                 
             }
-        }.background(Color(hex:0xF2F1EE))
+        }
+        .background(Color(hex:0xF2F1EE))
             .onAppear {
                 UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation") // Forcing the rotation to portrait
                 AppDelegate.orientationLock = .portrait // And making sure it stays that way
@@ -73,7 +76,7 @@ struct CalendarView: View {
         // Stress of the day
         RoundedRectangle(cornerRadius: 8)
             .padding()
-            .aspectRatio(1.8, contentMode: .fit)
+            .aspectRatio(1.4, contentMode: .fit)
             .foregroundColor(Color(hex:0x5AA091))
             .shadow(radius:4)
             .overlay(
@@ -84,8 +87,9 @@ struct CalendarView: View {
                         Text("Moodswings")
                             .scaledFont(name: "Montserrat-SemiBold", size: 14)
                             .foregroundColor(Color(hex:0xEFEEEB))
-                            .padding([.top, .horizontal])
-                        
+                            .padding([.top, .horizontal],-1)
+//                            .background(.red)
+//
                         HStack{
                             let (firstMood, secondMood) = MoodModel.getFirstMoods(fromDate: selectedDate)
                             
@@ -94,10 +98,11 @@ struct CalendarView: View {
                                 Text("\(firstMood?.emoji ?? "?")")
                                     .scaledFont(name: "system", size: 28)
                                     .padding()
-                                    .shadow(radius:4)
+//                                    .shadow(radius:4)
                                     .clipShape(Circle())
                                     .background(Color(firstMood?.color ?? .white))
                                     .clipShape(Circle())
+                                    .shadow(radius: 4)
                                 
                                 Text("Before")
                                     .scaledFont(name: "Montserrat-SemiBold", size: 14)
@@ -112,10 +117,12 @@ struct CalendarView: View {
                                 Text("\(secondMood?.emoji ?? "?")")
                                     .scaledFont(name: "system", size: 28)
                                     .padding()
-                                    .shadow(radius:4)
+//                                    .shadow(radius:4)
                                     .clipShape(Circle())
                                     .background(Color(secondMood?.color ?? .white))
                                     .clipShape(Circle())
+                                    .shadow(radius: 4)
+
                                 
                                 
                                     .clipShape(Circle())
@@ -142,11 +149,25 @@ struct CalendarView: View {
                     
                     
                     // Activity of the day
-                    RoundedRectangle(cornerRadius: 20)
-                        .aspectRatio(10, contentMode: .fit)
-                        .padding(.top, 120)
-                        .padding(.horizontal, 40)
-                        .foregroundColor(Color(hex:0xEFEEEB))
+                    VStack{
+                        Text("Today's quote was: ")
+                            .scaledFont(name: "Montserrat-Medium", size: 12)
+                            .foregroundColor(Color(hex:0xEFEEEB))
+                            .padding([.top, .horizontal])
+
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundColor(Color(hex:0xEFEEEB))
+                            .frame(height: 40)
+                            .overlay(
+                                Text("\(MoodModel.getDayQuote(fromDate: selectedDate) ?? "Write here...")")
+                                    .font(.custom("Montserrat-Regular", size: 10))
+                                    .foregroundColor(Color(hex: 0x6c8c7a))
+                                
+                            )
+//                            .background(.red)
+                    }
+                    .padding(.top, 140)
+                    .padding(40)
                     
                     
                     
@@ -162,5 +183,6 @@ struct CalendarView_Previews: PreviewProvider {
     static var previews: some View {
         CalendarView()
             .environmentObject(Emoji())
+            .environmentObject(Intro())
     }
 }
